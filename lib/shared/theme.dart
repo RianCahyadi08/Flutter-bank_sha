@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Color whiteColor = Color(0xffFFFFFF);
 Color blackColor = Color(0xff14193F);
@@ -10,5 +11,30 @@ Color purpleColor = Color(0xff5142E6);
 Color greenColor = Color(0xff22B07D);
 Color numberBackgroundColor = Color(0xff1A1D2E);
 
-TextStyle titleOnBoarding =
-    TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: blackColor);
+FontWeight light = FontWeight.w300;
+FontWeight regular = FontWeight.w400;
+FontWeight medium = FontWeight.w500;
+FontWeight semiBold = FontWeight.w600;
+FontWeight bold = FontWeight.w700;
+FontWeight extraBold = FontWeight.w800;
+FontWeight black = FontWeight.w900;
+
+TextStyle blackTextStyle = GoogleFonts.poppins(
+  color: blackColor,
+);
+
+TextStyle whiteTextStyle = GoogleFonts.poppins(
+  color: whiteColor,
+);
+
+TextStyle grayTextStyle = GoogleFonts.poppins(
+  color: greenColor,
+);
+
+TextStyle blueTextStyle = GoogleFonts.poppins(
+  color: blueColor,
+);
+
+TextStyle greenTextStyle = GoogleFonts.poppins(
+  color: greenColor,
+);
