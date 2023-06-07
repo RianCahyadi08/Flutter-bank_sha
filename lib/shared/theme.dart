@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 Color whiteColor = Color(0xffFFFFFF);
 Color blackColor = Color(0xff14193F);
-Color greyColor = Color(0xffA4A8AE);
+Color grayColor = Color(0xffA4A8AE);
 Color lightBackgroundColor = Color(0xffF6F8FB);
 Color blackBackgroundColor = Color(0xff020518);
 Color blueColor = Color(0xff53C1F9);
@@ -29,7 +29,7 @@ TextStyle whiteTextStyle = GoogleFonts.poppins(
 );
 
 TextStyle grayTextStyle = GoogleFonts.poppins(
-  color: greenColor,
+  color: grayColor,
 );
 
 TextStyle blueTextStyle = GoogleFonts.poppins(
