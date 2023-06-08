@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -99,37 +100,18 @@ class SignIn extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign In',
-                            style: whiteTextStyle.copyWith(
-                                fontSize: 16, fontWeight: semiBold),
-                          ),
-                          style: TextButton.styleFrom(
-                              backgroundColor: purpleColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(56))),
-                        ),
+                      CustomFilledButton(
+                        title: 'Sign In',
+                        onPressed: () {},
                       ),
                       SizedBox(
                         height: 50,
                       ),
-                      SizedBox(
-                        width: double.infinity,
+                      CustomTextButton(
+                        title: 'Create New Account',
+                        width: 165,
                         height: 24,
-                        child: TextButton(
-                            onPressed: () {},
-                            style:
-                                TextButton.styleFrom(padding: EdgeInsets.zero),
-                            child: Text(
-                              'Create New Account',
-                              style: grayTextStyle.copyWith(
-                                  fontSize: 16, fontWeight: regular),
-                            )),
+                        onPressed: () {},
                       ),
                     ],
                   )
