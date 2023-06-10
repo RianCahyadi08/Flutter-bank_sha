@@ -87,29 +87,20 @@ class _OnBoardingState extends State<OnBoarding> {
                             children: [
                               CustomFilledButton(
                                 title: 'Get Started',
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/sign-up');
+                                },
                               ),
                               SizedBox(
                                 height: 20,
                               ),
-                              SizedBox(
-                                width: 53,
-                                height: 24,
-                                child: TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => SignIn()));
-                                    },
-                                    style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero),
-                                    child: Text(
-                                      'Sign In',
-                                      style: grayTextStyle.copyWith(
-                                          fontSize: 16, fontWeight: regular),
-                                    )),
-                              ),
+                              CustomTextButton(
+                                  title: 'Sign In',
+                                  width: 53,
+                                  height: 24,
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/sign-in');
+                                  }),
                             ],
                           )
                         : Row(

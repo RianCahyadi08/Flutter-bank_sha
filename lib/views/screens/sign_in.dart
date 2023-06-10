@@ -1,5 +1,6 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
+import 'package:bank_sha/views/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
@@ -38,51 +39,13 @@ class SignIn extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Email Address',
-                        style: blackTextStyle.copyWith(
-                          fontSize: 14,
-                          fontWeight: medium,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(14)),
-                            contentPadding: EdgeInsets.all(12)),
-                      ),
-                    ],
-                  ),
+                  const CustomFormField(title: 'Email Address'),
                   SizedBox(
                     height: 16,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Password',
-                        style: blackTextStyle.copyWith(
-                          fontSize: 14,
-                          fontWeight: medium,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(14)),
-                            contentPadding: EdgeInsets.all(12)),
-                      ),
-                    ],
+                  CustomFormField(
+                    title: 'Password',
+                    obscureText: true,
                   ),
                   SizedBox(
                     height: 8,
@@ -111,7 +74,9 @@ class SignIn extends StatelessWidget {
                         title: 'Create New Account',
                         width: 165,
                         height: 24,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/sign-up');
+                        },
                       ),
                     ],
                   )

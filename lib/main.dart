@@ -1,4 +1,8 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/onboarding.dart';
+import 'package:bank_sha/views/screens/sign_in.dart';
+import 'package:bank_sha/views/screens/sign_up.dart';
+import 'package:bank_sha/views/screens/sign_up_set_profile.dart';
 import 'package:bank_sha/views/screens/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +12,15 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/onboarding': (context) => const OnBoarding(),
+        '/sign-in': (context) => const SignIn(),
+        '/sign-up': (context) => const SignUp(),
+        '/sign-up-upload-pic': (context) => const SignUpSetProfile(),
+      },
     );
   }
 }
