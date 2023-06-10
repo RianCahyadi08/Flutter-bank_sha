@@ -2,7 +2,9 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/screens/onboarding.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
+import 'package:bank_sha/views/screens/sign_up_set_card.dart';
 import 'package:bank_sha/views/screens/sign_up_set_profile.dart';
+import 'package:bank_sha/views/screens/sign_up_success.dart';
 import 'package:bank_sha/views/screens/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => const SignIn(),
         '/sign-up': (context) => const SignUp(),
         '/sign-up-upload-pic': (context) => const SignUpSetProfile(),
+        '/sign-up-upload-card': (context) => const SignUpSetCard(),
+        '/sign-up-success': (context) => const SignUpSuccess(),
       },
     );
   }
