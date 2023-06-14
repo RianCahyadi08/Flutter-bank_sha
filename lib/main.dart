@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/homepage.dart';
 import 'package:bank_sha/views/screens/onboarding.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-upload-pic': (context) => const SignUpSetProfile(),
         '/sign-up-upload-card': (context) => const SignUpSetCard(),
         '/sign-up-success': (context) => const SignUpSuccess(),
+        '/homepage': (context) => const HomePage()
       },
     );
   }

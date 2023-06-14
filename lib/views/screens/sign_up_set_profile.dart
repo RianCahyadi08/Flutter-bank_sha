@@ -70,7 +70,10 @@ class SignUpSetProfile extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                CustomFormField(title: 'Set Pin (6 digit number)'),
+                CustomFormField(
+                  title: 'Set Pin (6 digit number)',
+                  obscureText: true,
+                ),
                 SizedBox(
                   height: 30,
                 ),

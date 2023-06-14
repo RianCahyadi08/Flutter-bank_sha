@@ -65,7 +65,10 @@ class SignIn extends StatelessWidget {
                     children: [
                       CustomFilledButton(
                         title: 'Sign In',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, '/homepage', (route) => false);
+                        },
                       ),
                       SizedBox(
                         height: 50,

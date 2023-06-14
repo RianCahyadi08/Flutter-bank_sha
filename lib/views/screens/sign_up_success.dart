@@ -33,7 +33,8 @@ class SignUpSuccess extends StatelessWidget {
             title: 'Get Started',
             width: 183,
             onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/homepage', (route) => false);
             },
           )
         ],
