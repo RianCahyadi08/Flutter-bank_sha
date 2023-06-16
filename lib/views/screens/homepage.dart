@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/widgets/home_service_items.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,12 @@ class HomePage extends StatelessWidget {
       backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 24),
-        children: [buildProfile(), buildWalletCard(), buildLevel()],
+        children: [
+          buildProfile(),
+          buildWalletCard(),
+          buildLevel(),
+          buildServices()
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         color: whiteColor,
@@ -214,5 +220,41 @@ class HomePage extends StatelessWidget {
             )
           ],
         ));
+  }
+
+  Widget buildServices() {
+    return Container(
+      margin: EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Do Something',
+            style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+          ),
+          SizedBox(
+            height: 14,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HomeServiceItems(
+                  iconUrl: 'assets/images/ic_topup.png', title: 'Top Up'),
+              HomeServiceItems(
+                  iconUrl: 'assets/images/ic_send.png', title: 'Send'),
+              HomeServiceItems(
+                  iconUrl: 'assets/images/ic_withdraw.png', title: 'Withdraw'),
+              HomeServiceItems(
+                  iconUrl: 'assets/images/ic_more.png', title: 'More'),
+            ],
+          ),
+          // SizedBox(
+          //   width: 16,
+          //   height: 8,
+          // ),
+          // Text('dwdw')
+        ],
+      ),
+    );
   }
 }
