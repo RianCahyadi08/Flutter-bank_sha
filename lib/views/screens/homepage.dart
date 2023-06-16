@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 24),
-        children: [buildProfile()],
+        children: [buildProfile(), buildWalletCard(), buildLevel()],
       ),
       bottomNavigationBar: BottomAppBar(
         color: whiteColor,
@@ -125,5 +125,94 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildWalletCard() {
+    return Container(
+      margin: EdgeInsets.only(top: 32),
+      padding: EdgeInsets.only(left: 30, top: 30),
+      width: double.infinity,
+      height: 220,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(28),
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/images/img_bg_card.png'))),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Shayna Hanna',
+            style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium),
+          ),
+          SizedBox(
+            height: 28,
+          ),
+          Text(
+            '**** **** **** 1280',
+            style: whiteTextStyle.copyWith(
+                fontSize: 18, fontWeight: medium, letterSpacing: 6),
+          ),
+          SizedBox(
+            height: 21,
+          ),
+          Text(
+            'Balance',
+            style: whiteTextStyle.copyWith(fontSize: 14, fontWeight: regular),
+          ),
+          Text(
+            'Rp 12.500',
+            style: whiteTextStyle.copyWith(fontSize: 24, fontWeight: semiBold),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildLevel() {
+    return Container(
+        margin: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 22),
+        width: 327,
+        // height: 80,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20), color: whiteColor),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Level 1',
+                  style:
+                      blackTextStyle.copyWith(fontSize: 14, fontWeight: medium),
+                ),
+                Spacer(),
+                Text(
+                  '55% ',
+                  style: greenTextStyle.copyWith(
+                      fontSize: 14, fontWeight: semiBold),
+                ),
+                Text(
+                  'of Rp 20.000',
+                  style: blackTextStyle.copyWith(
+                      fontSize: 14, fontWeight: semiBold),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(55),
+              child: LinearProgressIndicator(
+                minHeight: 5,
+                value: 0.55,
+                valueColor: AlwaysStoppedAnimation(greenColor),
+                backgroundColor: lightBackgroundColor,
+              ),
+            )
+          ],
+        ));
   }
 }
