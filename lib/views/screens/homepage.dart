@@ -8,6 +8,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightBackgroundColor,
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        children: [buildProfile()],
+      ),
       bottomNavigationBar: BottomAppBar(
         color: whiteColor,
         shape: CircularNotchedRectangle(),
@@ -67,6 +71,59 @@ class HomePage extends StatelessWidget {
             width: 24,
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget buildProfile() {
+    return Container(
+      margin: EdgeInsets.only(top: 42),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Howdy,',
+                style:
+                    grayTextStyle.copyWith(fontWeight: regular, fontSize: 16),
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              Text(
+                'shaynahan',
+                style:
+                    blackTextStyle.copyWith(fontWeight: semiBold, fontSize: 20),
+              )
+            ],
+          ),
+          Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage('assets/images/img_profile.png'))),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 16,
+                height: 16,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: whiteColor),
+                child: Center(
+                  child: Icon(
+                    Icons.check_circle,
+                    color: greenColor,
+                    size: 14,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
