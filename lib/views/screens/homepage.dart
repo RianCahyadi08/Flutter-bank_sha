@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/widgets/home_latest_transactions_items.dart';
 import 'package:bank_sha/views/widgets/home_service_items.dart';
 import 'package:flutter/material.dart';
 
@@ -10,17 +11,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: lightBackgroundColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           buildProfile(),
           buildWalletCard(),
           buildLevel(),
-          buildServices()
+          buildServices(),
+          buildLatestTransactions(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         color: whiteColor,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         clipBehavior: Clip.antiAlias,
         elevation: 0,
         notchMargin: 6,
@@ -82,7 +84,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildProfile() {
     return Container(
-      margin: EdgeInsets.only(top: 42),
+      margin: const EdgeInsets.only(top: 42),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -94,7 +96,7 @@ class HomePage extends StatelessWidget {
                 style:
                     grayTextStyle.copyWith(fontWeight: regular, fontSize: 16),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               Text(
@@ -107,7 +109,7 @@ class HomePage extends StatelessWidget {
           Container(
             width: 60,
             height: 60,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                     image: AssetImage('assets/images/img_profile.png'))),
@@ -135,13 +137,13 @@ class HomePage extends StatelessWidget {
 
   Widget buildWalletCard() {
     return Container(
-      margin: EdgeInsets.only(top: 32),
-      padding: EdgeInsets.only(left: 30, top: 30),
+      margin: const EdgeInsets.only(top: 32),
+      padding: const EdgeInsets.only(left: 30, top: 30),
       width: double.infinity,
       height: 220,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(28),
-          image: DecorationImage(
+          image: const DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage('assets/images/img_bg_card.png'))),
       child: Column(
@@ -151,7 +153,7 @@ class HomePage extends StatelessWidget {
             'Shayna Hanna',
             style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium),
           ),
-          SizedBox(
+          const SizedBox(
             height: 28,
           ),
           Text(
@@ -159,7 +161,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle.copyWith(
                 fontSize: 18, fontWeight: medium, letterSpacing: 6),
           ),
-          SizedBox(
+          const SizedBox(
             height: 21,
           ),
           Text(
@@ -255,6 +257,55 @@ class HomePage extends StatelessWidget {
           // Text('dwdw')
         ],
       ),
+    );
+  }
+
+  Widget buildLatestTransactions() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          'Latest Transactions',
+          style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 14),
+          padding: const EdgeInsets.only(left: 22, top: 22, right: 21),
+          width: 327,
+          height: 356,
+          decoration: BoxDecoration(
+              color: whiteColor, borderRadius: BorderRadius.circular(20)),
+          child: Column(
+            children: [
+              HomeLatestTransactionsItems(
+                  iconUrl: 'assets/images/ic_transaction_cat1.png',
+                  title: 'Top Up',
+                  date: 'Yesterday',
+                  value: '+450.000'),
+              HomeLatestTransactionsItems(
+                  iconUrl: 'assets/images/ic_transaction_cat2.png',
+                  title: 'Cashback',
+                  date: 'Sep 11',
+                  value: '+22.000'),
+              HomeLatestTransactionsItems(
+                  iconUrl: 'assets/images/ic_transaction_cat3.png',
+                  title: 'Withdraw',
+                  date: 'Sep 2',
+                  value: '-5.000'),
+              HomeLatestTransactionsItems(
+                  iconUrl: 'assets/images/ic_transaction_cat4.png',
+                  title: 'Transfer',
+                  date: 'Aug 27',
+                  value: '-123.500'),
+              HomeLatestTransactionsItems(
+                  iconUrl: 'assets/images/ic_transaction_cat5.png',
+                  title: 'Eletric',
+                  date: 'Feb 18',
+                  value: '-12.300.000'),
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
