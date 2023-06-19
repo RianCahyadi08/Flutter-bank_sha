@@ -373,15 +373,15 @@ class HomePage extends StatelessWidget {
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips2.png',
                   title: 'Great hack to get\nbetter advices',
-                  url: 'https://www.google.com'),
+                  url: 'https://pub.dev/'),
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips3.png',
                   title: 'Spot the good pie\nof finance model',
-                  url: 'https://www.google.com'),
+                  url: 'https://www.facebook.com'),
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips4.png',
                   title: 'Save more penny\nbuy this instead',
-                  url: 'https://www.google.com'),
+                  url: 'https://www.instagram.com'),
             ],
           ),
         ],
