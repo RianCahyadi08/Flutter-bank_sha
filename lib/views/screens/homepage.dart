@@ -1,6 +1,7 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/home_latest_transactions_items.dart';
 import 'package:bank_sha/views/widgets/home_service_items.dart';
+import 'package:bank_sha/views/widgets/home_tips_items.dart';
 import 'package:bank_sha/views/widgets/home_user_items.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
           buildServices(),
           buildLatestTransactions(),
           buildSendAgain(),
+          buildFriendlyTips()
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -342,6 +344,46 @@ class HomePage extends StatelessWidget {
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Friendly Tips',
+            style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+          ),
+          SizedBox(
+            height: 14,
+          ),
+          Wrap(
+            spacing: 17,
+            runSpacing: 18,
+            children: [
+              HomeTipsItems(
+                  imageUrl: 'assets/images/img_friendly_tips1.png',
+                  title: 'Best tips for using\na credit card',
+                  url: 'https://www.google.com'),
+              HomeTipsItems(
+                  imageUrl: 'assets/images/img_friendly_tips2.png',
+                  title: 'Great hack to get\nbetter advices',
+                  url: 'https://www.google.com'),
+              HomeTipsItems(
+                  imageUrl: 'assets/images/img_friendly_tips3.png',
+                  title: 'Spot the good pie\nof finance model',
+                  url: 'https://www.google.com'),
+              HomeTipsItems(
+                  imageUrl: 'assets/images/img_friendly_tips4.png',
+                  title: 'Save more penny\nbuy this instead',
+                  url: 'https://www.google.com'),
+            ],
+          ),
         ],
       ),
     );
