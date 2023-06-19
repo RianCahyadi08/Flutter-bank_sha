@@ -1,6 +1,7 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/home_latest_transactions_items.dart';
 import 'package:bank_sha/views/widgets/home_service_items.dart';
+import 'package:bank_sha/views/widgets/home_user_items.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,6 +19,7 @@ class HomePage extends StatelessWidget {
           buildLevel(),
           buildServices(),
           buildLatestTransactions(),
+          buildSendAgain(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -306,6 +308,42 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ]),
+    );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+      margin: EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Send Again',
+            style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+          ),
+          SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                HomeUserItems(
+                    imageUrl: 'assets/images/img_friend1.png',
+                    username: 'yuanita'),
+                HomeUserItems(
+                    imageUrl: 'assets/images/img_friend2.png',
+                    username: 'jani'),
+                HomeUserItems(
+                    imageUrl: 'assets/images/img_friend3.png',
+                    username: 'urip'),
+                HomeUserItems(
+                    imageUrl: 'assets/images/img_friend4.png', username: 'masa')
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
