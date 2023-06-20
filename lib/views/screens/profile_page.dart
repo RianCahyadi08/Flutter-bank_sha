@@ -12,6 +12,10 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'My Profile',
+          style: blackTextStyle.copyWith(
+            fontSize: 20,
+            fontWeight: semiBold,
+          ),
         ),
       ),
       body: ListView(
@@ -65,8 +69,11 @@ class ProfilePage extends StatelessWidget {
                 ProfileMenuItems(
                   iconUrl: 'assets/images/ic_edit_profile.png',
                   nameMenu: 'Edit Profile',
-                  onTap: () {
-                    Navigator.pushNamed(context, '/pin');
+                  onTap: () async {
+                    // Navigator.pushNamed(context, '/pin');
+                    if (await Navigator.pushNamed(context, '/pin') == true) {
+                      Navigator.pushNamed(context, '/profile-edit');
+                    }
                   },
                 ),
                 ProfileMenuItems(

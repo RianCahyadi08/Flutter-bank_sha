@@ -18,6 +18,9 @@ class _PinPageState extends State<PinPage> {
         pinController.text = pinController.text + number;
       });
     }
+    if (pinController.text == 6 || pinController.text == '123456') {
+      Navigator.pop(context, true);
+    }
   }
 
   deletePin() {

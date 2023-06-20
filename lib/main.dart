@@ -2,6 +2,9 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/screens/homepage.dart';
 import 'package:bank_sha/views/screens/onboarding.dart';
 import 'package:bank_sha/views/screens/pin_page.dart';
+import 'package:bank_sha/views/screens/profile_edit_page.dart';
+import 'package:bank_sha/views/screens/profile_edit_pin_page.dart';
+import 'package:bank_sha/views/screens/profile_edit_success_page.dart';
 import 'package:bank_sha/views/screens/profile_page.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
@@ -40,6 +43,9 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
         '/pin': (context) => const PinPage(),
+        '/profile-edit': (context) => const ProfileEditPage(),
+        '/profile-edit-pin': (context) => const ProfileEditPinPage(),
+        '/profile-edit-success': (context) => const ProfileEditSuccessPage(),
       },
     );
   }
