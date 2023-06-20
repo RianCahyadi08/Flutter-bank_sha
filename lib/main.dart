@@ -1,6 +1,7 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/screens/homepage.dart';
 import 'package:bank_sha/views/screens/onboarding.dart';
+import 'package:bank_sha/views/screens/pin_page.dart';
 import 'package:bank_sha/views/screens/profile_page.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
@@ -18,6 +19,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          scaffoldBackgroundColor: lightBackgroundColor,
+          appBarTheme: AppBarTheme(
+            backgroundColor: lightBackgroundColor,
+            elevation: 0,
+            centerTitle: true,
+            iconTheme: IconThemeData(color: blackColor),
+            titleTextStyle:
+                blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
+          )),
       routes: {
         '/': (context) => const SplashScreen(),
         '/onboarding': (context) => const OnBoarding(),
@@ -28,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-success': (context) => const SignUpSuccess(),
         '/homepage': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
+        '/pin': (context) => const PinPage(),
       },
     );
   }
