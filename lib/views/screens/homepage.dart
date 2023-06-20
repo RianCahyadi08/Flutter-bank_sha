@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
-          buildProfile(),
+          buildProfile(context),
           buildWalletCard(),
           buildLevel(),
           buildServices(),
@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildProfile() {
+  Widget buildProfile(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 42),
       child: Row(
@@ -110,25 +110,30 @@ class HomePage extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            width: 60,
-            height: 60,
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage('assets/images/img_profile.png'))),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                width: 16,
-                height: 16,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: whiteColor),
-                child: Center(
-                  child: Icon(
-                    Icons.check_circle,
-                    color: greenColor,
-                    size: 14,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/img_profile.png'))),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  width: 16,
+                  height: 16,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: whiteColor),
+                  child: Center(
+                    child: Icon(
+                      Icons.check_circle,
+                      color: greenColor,
+                      size: 14,
+                    ),
                   ),
                 ),
               ),
@@ -369,19 +374,19 @@ class HomePage extends StatelessWidget {
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips1.png',
                   title: 'Best tips for using\na credit card',
-                  url: 'https://www.google.com'),
+                  url: Uri.parse('https://www.google.com')),
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips2.png',
                   title: 'Great hack to get\nbetter advices',
-                  url: 'https://pub.dev/'),
+                  url: Uri.parse('https://pub.dev/')),
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips3.png',
                   title: 'Spot the good pie\nof finance model',
-                  url: 'https://www.facebook.com'),
+                  url: Uri.parse('https://www.facebook.com')),
               HomeTipsItems(
                   imageUrl: 'assets/images/img_friendly_tips4.png',
                   title: 'Save more penny\nbuy this instead',
-                  url: 'https://www.instagram.com'),
+                  url: Uri.parse('https://www.instagram.com')),
             ],
           ),
         ],

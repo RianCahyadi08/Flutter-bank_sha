@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class HomeTipsItems extends StatelessWidget {
   final String imageUrl;
   final String title;
-  final String url;
+  final Uri url;
 
   const HomeTipsItems(
       {Key? key,
@@ -17,8 +17,11 @@ class HomeTipsItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        if (await canLaunch(url)) {
-          launch(url);
+        // if (await canLaunch(url)) {
+        //   launch(url);
+        // }
+        if (!await launchUrl(url)) {
+          throw Exception('Could not launch $url');
         }
       },
       child: Container(
