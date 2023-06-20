@@ -1,4 +1,6 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/widgets/buttons.dart';
+import 'package:bank_sha/views/widgets/profile_menu_items.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -62,8 +64,51 @@ class ProfilePage extends StatelessWidget {
                   'Shayna Hanna',
                   style:
                       blackTextStyle.copyWith(fontSize: 18, fontWeight: medium),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_edit_profile.png',
+                  nameMenu: 'Edit Profile',
+                  onTap: () {},
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_my_vpn.png',
+                  nameMenu: 'My PIN',
+                  onTap: () {},
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_wallet_setting.png',
+                  nameMenu: 'Wallet Setting',
+                  onTap: () {},
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_my_rewards.png',
+                  nameMenu: 'My Rewards',
+                  onTap: () {},
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_help_center.png',
+                  nameMenu: 'Help Center',
+                  onTap: () {},
+                ),
+                ProfileMenuItems(
+                  iconUrl: 'assets/images/ic_logout.png',
+                  nameMenu: 'Log Out',
+                  onTap: () {},
                 )
               ],
+            ),
+          ),
+          SizedBox(
+            height: 87,
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: 50),
+            child: CustomTextButton(
+              title: 'Report a Problem',
+              onPressed: () {},
             ),
           )
         ],
