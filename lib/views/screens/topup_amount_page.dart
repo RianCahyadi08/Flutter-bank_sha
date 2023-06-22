@@ -1,6 +1,8 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -9,16 +11,46 @@ class TopUpAmountPage extends StatefulWidget {
   State<TopUpAmountPage> createState() => _TopUpAmountPage();
 }
 
+class CurrencyFormat {
+  static String converterToIdr(String number) {
+    NumberFormat currenctFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: '',
+      decimalDigits: 0,
+    );
+
+    if (number == '') {
+      number = '0';
+    }
+
+    return currenctFormatter.format(
+        // int.parse(number.toString() != null ? '$number'.toString() : '0'),'
+        int.parse(number.replaceAll('.', '')));
+  }
+}
+
 class _TopUpAmountPage extends State<TopUpAmountPage> {
   final TextEditingController amountController =
-      TextEditingController(text: '0');
+      TextEditingController(text: CurrencyFormat.converterToIdr('0'));
+
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value
+          .copyWith(text: CurrencyFormat.converterToIdr(text));
+      print(amountController.value
+          .copyWith(text: CurrencyFormat.converterToIdr(text)));
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == '0') {
       amountController.text = '';
     }
     setState(() {
-      amountController.text = amountController.text + number;
+      amountController.text =
+          CurrencyFormat.converterToIdr(amountController.text + number);
     });
   }
 
@@ -181,7 +213,9 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
             title: 'Checkout Now',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
-                await Navigator.pushNamedAndRemoveUntil(
+                // await launch('https://demo.midtrans.com/');
+                await launchUrl(Uri.parse('https://demo.midtrans.com/'));
+                Navigator.pushNamedAndRemoveUntil(
                   context,
                   '/topup-success',
                   (route) => false,
