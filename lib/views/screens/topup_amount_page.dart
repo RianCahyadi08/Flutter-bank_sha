@@ -3,6 +3,8 @@ import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -44,13 +46,27 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
     });
   }
 
+  converterToIdr(String number) {
+    NumberFormat currencyFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: '',
+      decimalDigits: 0,
+    );
+
+    if (number == '') {
+      number = '0';
+    }
+
+    return currencyFormatter
+        .format(int.parse(number.replaceAll(RegExp(r'[^0-9]'), '')));
+  }
+
   addAmount(String number) {
     if (amountController.text == '0') {
       amountController.text = '';
     }
     setState(() {
-      amountController.text =
-          CurrencyFormat.converterToIdr(amountController.text + number);
+      amountController.text = converterToIdr(amountController.text + number);
     });
   }
 
@@ -60,8 +76,10 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
         if (amountController.text == '') {
           amountController.text == '0';
         }
-        amountController.text = amountController.text
-            .substring(0, amountController.text.length - 1);
+        // amountController.text = amountController.text
+        //     .substring(0, amountController.text.length - 1);
+        amountController.text = converterToIdr(amountController.text
+            .substring(0, amountController.text.length - 1));
       });
     }
   }
