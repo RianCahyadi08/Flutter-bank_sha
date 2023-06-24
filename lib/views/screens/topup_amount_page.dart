@@ -55,11 +55,14 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
           horizontal: 58,
         ),
         children: [
-          Center(
-            child: Text(
-              'Total Amount',
-              style:
-                  whiteTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 40.0),
+            child: Center(
+              child: Text(
+                'Total Amount',
+                style:
+                    whiteTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
+              ),
             ),
           ),
           SizedBox(

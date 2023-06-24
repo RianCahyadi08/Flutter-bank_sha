@@ -255,7 +255,12 @@ class HomePage extends StatelessWidget {
                     Navigator.pushNamed(context, '/topup');
                   }),
               HomeServiceItems(
-                  iconUrl: 'assets/images/ic_send.png', title: 'Send'),
+                iconUrl: 'assets/images/ic_send.png',
+                title: 'Send',
+                onTap: () {
+                  Navigator.pushNamed(context, '/transfer-choose-user');
+                },
+              ),
               HomeServiceItems(
                   iconUrl: 'assets/images/ic_withdraw.png', title: 'Withdraw'),
               HomeServiceItems(
