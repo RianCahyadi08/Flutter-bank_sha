@@ -3,6 +3,8 @@ import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -11,9 +13,38 @@ class TopUpAmountPage extends StatefulWidget {
   State<TopUpAmountPage> createState() => _TopUpAmountPage();
 }
 
+class CurrencyFormat {
+  static String converterToIdr(String number) {
+    NumberFormat currenctFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: '',
+      decimalDigits: 0,
+    );
+
+    if (number == '') {
+      number = '0';
+    }
+
+    return currenctFormatter.format(
+        // int.parse(number.toString() != null ? '$number'.toString() : '0'),'
+        int.parse(number.replaceAll('.', '')));
+  }
+}
+
 class _TopUpAmountPage extends State<TopUpAmountPage> {
   final TextEditingController amountController =
-      TextEditingController(text: '0');
+      TextEditingController(text: CurrencyFormat.converterToIdr('0'));
+
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value
+          .copyWith(text: CurrencyFormat.converterToIdr(text));
+      print(amountController.value
+          .copyWith(text: CurrencyFormat.converterToIdr(text)));
+    });
+  }
 
   converterToIdr(String number) {
     NumberFormat currencyFormatter = NumberFormat.currency(
@@ -21,6 +52,11 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
       symbol: '',
       decimalDigits: 0,
     );
+
+    if (number == '') {
+      number = '0';
+    }
+
     return currencyFormatter
         .format(int.parse(number.replaceAll(RegExp(r'[^0-9]'), '')));
   }
@@ -40,8 +76,10 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
         if (amountController.text == '') {
           amountController.text == '0';
         }
-        amountController.text = amountController.text
-            .substring(0, amountController.text.length - 1);
+        // amountController.text = amountController.text
+        //     .substring(0, amountController.text.length - 1);
+        amountController.text = converterToIdr(amountController.text
+            .substring(0, amountController.text.length - 1));
       });
     }
   }
@@ -196,8 +234,8 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
             title: 'Checkout Now',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
-                // await launchUrl(Uri.parse('https://demo.midtrans.com/'));
-                await launch('https://demo.midtrans.com/');
+                // await launch('https://demo.midtrans.com/');
+                await launchUrl(Uri.parse('https://demo.midtrans.com/'));
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   '/topup-success',
