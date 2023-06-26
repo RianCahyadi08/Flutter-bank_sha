@@ -440,8 +440,12 @@ class MoreDialog extends StatelessWidget {
               runSpacing: 29,
               children: [
                 HomeServiceItems(
-                    iconUrl: 'assets/images/ic_product_data.png',
-                    title: 'Data'),
+                  iconUrl: 'assets/images/ic_product_data.png',
+                  title: 'Data',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/provider-selected');
+                  },
+                ),
                 HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_water.png',
                     title: 'Water'),

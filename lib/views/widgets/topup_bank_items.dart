@@ -19,11 +19,11 @@ class TopUpBankItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 14,
         bottom: 18,
       ),
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 22,
         top: 28,
         right: 22,
@@ -52,7 +52,7 @@ class TopUpBankItems extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(

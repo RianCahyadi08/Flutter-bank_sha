@@ -6,6 +6,7 @@ import 'package:bank_sha/views/screens/profile_edit_page.dart';
 import 'package:bank_sha/views/screens/profile_edit_pin_page.dart';
 import 'package:bank_sha/views/screens/profile_edit_success_page.dart';
 import 'package:bank_sha/views/screens/profile_page.dart';
+import 'package:bank_sha/views/screens/provider_selected_page.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
 import 'package:bank_sha/views/screens/sign_up_set_card.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
         '/transfer-choose-user': (context) => const TransferChooseUser(),
         '/transfer-amount': (context) => const TransferAmountPage(),
         '/transfer-success': (context) => const TransferSuccess(),
+        '/provider-selected': (context) => const ProviderSelectedPage(),
       },
     );
   }

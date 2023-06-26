@@ -21,7 +21,7 @@ class TransferResultUserItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 14,
         vertical: 22,
       ),
@@ -61,7 +61,7 @@ class TransferResultUserItems extends StatelessWidget {
                   )
                 : null,
           ),
-          SizedBox(
+          const SizedBox(
             height: 13,
           ),
           Text(
