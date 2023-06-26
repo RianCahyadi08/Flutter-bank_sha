@@ -15,7 +15,7 @@ import 'package:bank_sha/views/screens/splash.dart';
 import 'package:bank_sha/views/screens/topup_amount_page.dart';
 import 'package:bank_sha/views/screens/topup_page.dart';
 import 'package:bank_sha/views/screens/topup_success_page.dart';
-import 'package:bank_sha/views/screens/transfer_amont_page.dart';
+import 'package:bank_sha/views/screens/transfer_amount_page.dart';
 import 'package:bank_sha/views/screens/transfer_choose_user.dart';
 import 'package:bank_sha/views/screens/transfer_success.dart';
 import 'package:flutter/material.dart';

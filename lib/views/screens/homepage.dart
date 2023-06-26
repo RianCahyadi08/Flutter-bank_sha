@@ -264,14 +264,16 @@ class HomePage extends StatelessWidget {
               HomeServiceItems(
                   iconUrl: 'assets/images/ic_withdraw.png', title: 'Withdraw'),
               HomeServiceItems(
-                  iconUrl: 'assets/images/ic_more.png', title: 'More'),
+                  iconUrl: 'assets/images/ic_more.png',
+                  title: 'More',
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => const MoreDialog(),
+                    );
+                  }),
             ],
           ),
-          // SizedBox(
-          //   width: 16,
-          //   height: 8,
-          // ),
-          // Text('dwdw')
         ],
       ),
     );
@@ -398,6 +400,67 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MoreDialog extends StatelessWidget {
+  const MoreDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.zero,
+      alignment: Alignment.bottomCenter,
+      content: Container(
+        height: 327,
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: lightBackgroundColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Do more With Us',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            SizedBox(
+              height: 13,
+            ),
+            Wrap(
+              spacing: 29,
+              runSpacing: 29,
+              children: [
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_data.png',
+                    title: 'Data'),
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_water.png',
+                    title: 'Water'),
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_stream.png',
+                    title: 'Stream'),
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_movie.png',
+                    title: 'Movie'),
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_food.png',
+                    title: 'Food'),
+                HomeServiceItems(
+                    iconUrl: 'assets/images/ic_product_travel.png',
+                    title: 'Travel'),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
