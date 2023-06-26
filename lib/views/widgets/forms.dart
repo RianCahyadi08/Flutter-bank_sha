@@ -37,6 +37,9 @@ class CustomFormField extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
               hintText: !isShowTitle ? title : null,
+              hintStyle: grayTextStyle.copyWith(
+                fontSize: 14,
+              ),
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               contentPadding: EdgeInsets.all(12)),

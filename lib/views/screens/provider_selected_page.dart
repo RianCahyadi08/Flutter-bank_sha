@@ -22,6 +22,7 @@ class ProviderSelectedPage extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 24,
             top: 30,
+            right: 24,
           ),
           children: [
             Column(
@@ -99,9 +100,11 @@ class ProviderSelectedPage extends StatelessWidget {
                 ),
                 CustomFilledButton(
                   title: 'Continue',
-                  width: 327,
+                  width: MediaQuery.of(context).size.width,
                   height: 50,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/package-data');
+                  },
                 ),
                 SizedBox(
                   height: 57,

@@ -1,6 +1,8 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/package_data_page.dart';
 import 'package:bank_sha/views/screens/homepage.dart';
 import 'package:bank_sha/views/screens/onboarding.dart';
+import 'package:bank_sha/views/screens/package_data_success.dart';
 import 'package:bank_sha/views/screens/pin_page.dart';
 import 'package:bank_sha/views/screens/profile_edit_page.dart';
 import 'package:bank_sha/views/screens/profile_edit_pin_page.dart';
@@ -60,6 +62,8 @@ class MyApp extends StatelessWidget {
         '/transfer-amount': (context) => const TransferAmountPage(),
         '/transfer-success': (context) => const TransferSuccess(),
         '/provider-selected': (context) => const ProviderSelectedPage(),
+        '/package-data': (context) => const PackageDataPage(),
+        '/package-data-success': (context) => const PackageDataSuccess(),
       },
     );
   }

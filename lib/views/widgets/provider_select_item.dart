@@ -24,8 +24,8 @@ class ProviderSelectItem extends StatelessWidget {
         bottom: 18,
       ),
       padding: const EdgeInsets.all(22),
-      width: 327,
-      height: 87,
+      width: MediaQuery.of(context).size.width,
+      height: 97,
       decoration: BoxDecoration(
           color: whiteColor,
           border: isSelected ? Border.all(color: blueColor, width: 2) : null,

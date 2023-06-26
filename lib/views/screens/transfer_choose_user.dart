@@ -116,8 +116,6 @@ class TransferChooseUser extends StatelessWidget {
             height: 14,
           ),
           Wrap(
-            spacing: 17,
-            runSpacing: 17,
             children: [
               TransferResultUserItems(
                 imgUrl: 'assets/images/img_result1.png',
