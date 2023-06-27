@@ -1,3 +1,4 @@
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/provider_select_item.dart';
@@ -62,7 +63,7 @@ class ProviderSelectedPage extends StatelessWidget {
                           height: 2,
                         ),
                         Text(
-                          'Balance: Rp 180.000.000',
+                          'Balance: ${formatCurrency(180000000)}',
                           style: grayTextStyle.copyWith(
                             fontSize: 12,
                           ),

@@ -1,3 +1,4 @@
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/forms.dart';
@@ -57,20 +58,20 @@ class PackageDataPage extends StatelessWidget {
                 children: [
                   PackageSelectItem(
                     amount: '10GB',
-                    price: 'Rp 218.000',
+                    price: '${formatCurrency(218000)}',
                   ),
                   PackageSelectItem(
                     amount: '25GB',
-                    price: 'Rp 420.000',
+                    price: '${formatCurrency(420000)}',
                   ),
                   PackageSelectItem(
                     amount: '40GB',
-                    price: 'Rp 2.500.000',
+                    price: '${formatCurrency(2500000)}',
                     isSelected: true,
                   ),
                   PackageSelectItem(
                     amount: '99GB',
-                    price: 'Rp 5.000.000',
+                    price: '${formatCurrency(5000000)}',
                   )
                 ],
               ),

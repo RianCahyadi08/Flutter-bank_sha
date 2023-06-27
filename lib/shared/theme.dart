@@ -12,6 +12,7 @@ Color purpleColor = Color(0xff5142E6);
 Color greenColor = Color(0xff22B07D);
 Color numberBackgroundColor = Color(0xff1A1D2E);
 Color darkBackgroundColor = Color(0xff020518);
+Color redColor = Color(0xffFF2567);
 
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;

@@ -10,13 +10,13 @@ class SignUpSetCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 100),
+            margin: const EdgeInsets.symmetric(vertical: 100),
             width: 155,
             height: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/img_logo_white.png'))),
           ),
@@ -24,11 +24,11 @@ class SignUpSetCard extends StatelessWidget {
             'Verify Your\nAccount',
             style: blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 52,
           ),
           Container(
-            padding: EdgeInsets.all(22),
+            padding: const EdgeInsets.all(22),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: whiteColor),
             child: Column(
@@ -37,7 +37,7 @@ class SignUpSetCard extends StatelessWidget {
                 Container(
                   width: 120,
                   height: 120,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xffF1F1F9),
                   ),
@@ -54,7 +54,7 @@ class SignUpSetCard extends StatelessWidget {
                   style:
                       blackTextStyle.copyWith(fontSize: 18, fontWeight: medium),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 CustomFilledButton(
@@ -63,7 +63,7 @@ class SignUpSetCard extends StatelessWidget {
                     Navigator.pushNamed(context, '/sign-up-success');
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 CustomTextButton(

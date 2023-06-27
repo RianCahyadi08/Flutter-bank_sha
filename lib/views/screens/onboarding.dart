@@ -53,12 +53,12 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
             carouselController: carouselController,
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 24),
-            padding: EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
             decoration: BoxDecoration(
                 color: whiteColor, borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -69,7 +69,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       fontSize: 20, fontWeight: semiBold),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 26,
                 ),
                 Text(
@@ -91,7 +91,7 @@ class _OnBoardingState extends State<OnBoarding> {
                                   context, '/sign-up', (route) => false);
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           CustomTextButton(
@@ -109,7 +109,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           Container(
                             width: 12,
                             height: 12,
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: currentIndex == 0
@@ -119,7 +119,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           Container(
                             width: 12,
                             height: 12,
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: currentIndex == 1
@@ -129,7 +129,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           Container(
                             width: 12,
                             height: 12,
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: currentIndex == 2
