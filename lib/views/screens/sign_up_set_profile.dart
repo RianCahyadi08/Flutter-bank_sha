@@ -1,10 +1,28 @@
+import 'dart:io';
+
+import 'package:bank_sha/models/sign_up_form_model.dart';
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/forms.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class SignUpSetProfile extends StatelessWidget {
-  const SignUpSetProfile({super.key});
+class SignUpSetProfile extends StatefulWidget {
+  final SignUpFormModel data;
+
+  const SignUpSetProfile({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+
+  @override
+  State<SignUpSetProfile> createState() => _SignUpSetProfileState();
+}
+
+class _SignUpSetProfileState extends State<SignUpSetProfile> {
+  final pinController = TextEditingController(text: '');
+  XFile? selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -34,35 +52,43 @@ class SignUpSetProfile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   width: 120,
-                //   height: 120,
-                //   decoration: BoxDecoration(
-                //     shape: BoxShape.circle,
-                //     color: Color(0xffF1F1F9),
-                //   ),
-                //   child: Center(
-                //     child: Image.asset(
-                //       'assets/images/ic_upload.png',
-                //       width: 32,
-                //       height: 32,
-                //     ),
-                //   ),
-                // ),
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
+                GestureDetector(
+                  onTap: () async {
+                    final image = await selectImage();
+                    setState(() {
+                      selectedImage = image;
+                    });
+                  },
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/images/img_profile.png'))),
+                      color: lightBackgroundColor,
+                      image: selectedImage == null
+                          ? null
+                          : DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                File(selectedImage!.path),
+                              ),
+                            ),
+                    ),
+                    child: selectedImage != null
+                        ? null
+                        : Center(
+                            child: Image.asset(
+                              'assets/images/ic_upload.png',
+                              width: 32,
+                            ),
+                          ),
+                  ),
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 Text(
-                  'Shayna Hanna',
+                  widget.data.name.toString(),
                   style:
                       blackTextStyle.copyWith(fontSize: 18, fontWeight: medium),
                 ),
@@ -72,6 +98,7 @@ class SignUpSetProfile extends StatelessWidget {
                 CustomFormField(
                   title: 'Set Pin (6 digit number)',
                   obscureText: true,
+                  controller: pinController,
                 ),
                 SizedBox(
                   height: 30,

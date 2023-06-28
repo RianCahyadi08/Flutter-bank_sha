@@ -10,7 +10,7 @@ class SignUpFormModel {
     required this.name,
     required this.email,
     required this.password,
-    required this.pin,
+    this.pin,
     this.profilepicture,
     this.ktp,
   });
