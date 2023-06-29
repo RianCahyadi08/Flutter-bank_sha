@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:bank_sha/shared/theme.dart';
+import 'package:flutter/services.dart';
 
 class CustomFormField extends StatelessWidget {
   final String title;
   final bool obscureText;
   final TextEditingController? controller;
   final bool isShowTitle;
+  final TextInputType? keyboardType;
 
   const CustomFormField({
     Key? key,
@@ -13,6 +15,7 @@ class CustomFormField extends StatelessWidget {
     this.obscureText = false,
     this.controller,
     this.isShowTitle = true,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -33,16 +36,17 @@ class CustomFormField extends StatelessWidget {
             height: 8,
           ),
         TextFormField(
+          keyboardType: keyboardType,
           obscureText: obscureText,
           controller: controller,
           decoration: InputDecoration(
-              hintText: !isShowTitle ? title : null,
-              hintStyle: grayTextStyle.copyWith(
-                fontSize: 14,
-              ),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
-              contentPadding: EdgeInsets.all(12)),
+            hintText: !isShowTitle ? title : null,
+            hintStyle: grayTextStyle.copyWith(
+              fontSize: 14,
+            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+            contentPadding: EdgeInsets.all(12),
+          ),
         ),
       ],
     );

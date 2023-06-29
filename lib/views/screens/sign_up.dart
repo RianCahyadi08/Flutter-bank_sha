@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFail) {
-            showCustomSnackBar(context, state.e);
+            showCustomSnackBar(context, 'Please enter email valid');
           }
           if (state is AuthCheckEmailSuccess) {
             // Navigator.pushNamed(context, '/sign-up-upload-pic');
@@ -112,9 +112,12 @@ class _SignUpState extends State<SignUp> {
                           context
                               .read<AuthBloc>()
                               .add(AuthCheckEmail(emailController.text));
-                        } else {
-                          showCustomSnackBar(
-                              context, 'Semua field harus diisi');
+                        } else if (nameController.text.isEmpty) {
+                          showCustomSnackBar(context, 'Name is required');
+                        } else if (emailController.text.isEmpty) {
+                          showCustomSnackBar(context, 'Email is required');
+                        } else if (passwordController.text.isEmpty) {
+                          showCustomSnackBar(context, 'Password is required');
                         }
                       },
                     ),

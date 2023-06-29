@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:bank_sha/models/sign_up_form_model.dart';
 import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/sign_up_set_card.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/forms.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ import 'package:image_picker/image_picker.dart';
 
 class SignUpSetProfile extends StatefulWidget {
   final SignUpFormModel data;
+
+  // const Sign
 
   const SignUpSetProfile({
     Key? key,
@@ -23,6 +27,13 @@ class SignUpSetProfile extends StatefulWidget {
 class _SignUpSetProfileState extends State<SignUpSetProfile> {
   final pinController = TextEditingController(text: '');
   XFile? selectedImage;
+
+  bool validate() {
+    if (pinController.text.length < 6 || pinController.text.length > 6) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +110,7 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                   title: 'Set Pin (6 digit number)',
                   obscureText: true,
                   controller: pinController,
+                  keyboardType: TextInputType.number,
                 ),
                 SizedBox(
                   height: 30,
@@ -106,7 +118,32 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                 CustomFilledButton(
                   title: 'Continue',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/sign-up-upload-card');
+                    if (validate()) {
+                      // Navigator.pushNamed(context, '/sign-up-upload-card');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ContentType) => SignUpSetCard(
+                            data: widget.data.copyWith(
+                              pin: pinController.text,
+                              proficePicture: selectedImage == null
+                                  ? null
+                                  : 'data:image/png;base64' +
+                                      base64Encode(
+                                        File(selectedImage!.path)
+                                            .readAsBytesSync(),
+                                      ),
+                            ),
+                          ),
+                        ),
+                      );
+                    } else if (pinController.text.isEmpty) {
+                      showCustomSnackBar(context, 'PIN is required');
+                    } else if (pinController.text.length > 6) {
+                      showCustomSnackBar(context, 'PIN lebih dari 6 digit');
+                    } else {
+                      showCustomSnackBar(context, 'PIN kurang dari 6 digit');
+                    }
                   },
                 )
               ],
