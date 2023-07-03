@@ -36,10 +36,6 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.data.pin);
-    print(widget.data.profilePicture);
-    print(widget.data.toString());
-
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -50,7 +46,7 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
 
           if (state is AuthSuccess) {
             Navigator.pushNamedAndRemoveUntil(
-                context, '/homepage', (route) => false);
+                context, '/sign-up-success', (route) => false);
           }
         },
         builder: (context, state) {
@@ -77,7 +73,7 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
                     blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
               ),
               const SizedBox(
-                height: 52,
+                height: 30,
               ),
               Container(
                 padding: const EdgeInsets.all(22),
@@ -144,13 +140,12 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
                                 ),
                               );
                         } else {
-                          showCustomSnackBar(
-                              context, 'Gambar tidak boleh kosong');
+                          showCustomSnackBar(context, 'Image is required');
                         }
                       },
                     ),
                     const SizedBox(
-                      height: 60,
+                      height: 30,
                     ),
                     CustomTextButton(
                       title: 'Skip for Now',

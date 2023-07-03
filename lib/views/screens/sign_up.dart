@@ -35,10 +35,9 @@ class _SignUpState extends State<SignUp> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFail) {
-            showCustomSnackBar(context, 'Please enter email valid');
+            showCustomSnackBar(context, state.e);
           }
           if (state is AuthCheckEmailSuccess) {
-            // Navigator.pushNamed(context, '/sign-up-upload-pic');
             Navigator.push(
                 context,
                 MaterialPageRoute(
