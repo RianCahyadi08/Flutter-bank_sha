@@ -46,6 +46,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthFail(e.toString()));
         }
       }
+
+      if (event is AuthGetCurrentUser) {
+        try {
+          emit(AuthLoading());
+          final SignInFormModel data =
+              await AuthService().getCredentialFromLocal(UserModel());
+
+          final UserModel user = await AuthService().login(data);
+          emit(AuthSuccess(user));
+        } catch (e) {
+          emit(AuthFail(e.toString()));
+        }
+      }
     });
   }
 }
