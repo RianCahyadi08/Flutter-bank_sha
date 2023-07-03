@@ -3,7 +3,7 @@ class SignUpFormModel {
   final String? email;
   final String? password;
   final String? pin;
-  final String? profilepicture;
+  final String? profilePicture;
   final String? ktp;
 
   SignUpFormModel({
@@ -11,7 +11,7 @@ class SignUpFormModel {
     required this.email,
     required this.password,
     this.pin,
-    this.profilepicture,
+    this.profilePicture,
     this.ktp,
   });
 
@@ -21,14 +21,14 @@ class SignUpFormModel {
       'email': email,
       'password': password,
       'pin': pin,
-      'profile_picture': profilepicture,
+      'profile_picture': profilePicture,
       'ktp': ktp,
     };
   }
 
   SignUpFormModel copyWith({
     String? pin,
-    String? proficePicture,
+    String? profilePicture,
     String? ktp,
   }) =>
       SignUpFormModel(
@@ -36,7 +36,7 @@ class SignUpFormModel {
         email: email,
         password: password,
         pin: pin ?? this.pin,
-        profilepicture: profilepicture ?? this.profilepicture,
+        profilePicture: profilePicture ?? this.profilePicture,
         ktp: ktp ?? this.ktp,
       );
 }

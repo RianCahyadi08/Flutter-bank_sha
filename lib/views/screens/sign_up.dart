@@ -1,4 +1,4 @@
-import 'package:bank_sha/bloc/bloc/auth_bloc.dart';
+import 'package:bank_sha/bloc/auth/auth_bloc.dart';
 import 'package:bank_sha/models/sign_up_form_model.dart';
 import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';

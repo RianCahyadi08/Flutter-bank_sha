@@ -1,4 +1,4 @@
-import 'package:bank_sha/bloc/bloc/auth_bloc.dart';
+import 'package:bank_sha/bloc/auth/auth_bloc.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/screens/package_data_page.dart';
 import 'package:bank_sha/views/screens/homepage.dart';

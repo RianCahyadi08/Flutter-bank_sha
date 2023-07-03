@@ -13,8 +13,6 @@ import 'package:image_picker/image_picker.dart';
 class SignUpSetProfile extends StatefulWidget {
   final SignUpFormModel data;
 
-  // const Sign
-
   const SignUpSetProfile({
     Key? key,
     required this.data,
@@ -69,6 +67,12 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                     setState(() {
                       selectedImage = image;
                     });
+                    print(
+                      'data:image/png;base64,' +
+                          base64Encode(
+                            File(selectedImage!.path).readAsBytesSync(),
+                          ),
+                    );
                   },
                   child: Container(
                     width: 120,
@@ -126,9 +130,9 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                           builder: (ContentType) => SignUpSetCard(
                             data: widget.data.copyWith(
                               pin: pinController.text,
-                              proficePicture: selectedImage == null
+                              profilePicture: selectedImage == null
                                   ? null
-                                  : 'data:image/png;base64' +
+                                  : 'data:image/png;base64,' +
                                       base64Encode(
                                         File(selectedImage!.path)
                                             .readAsBytesSync(),
