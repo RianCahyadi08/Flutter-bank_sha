@@ -25,7 +25,7 @@ class HomeTipsItems extends StatelessWidget {
         }
       },
       child: Container(
-        width: 155,
+        width: 147,
         height: 176,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: whiteColor),
