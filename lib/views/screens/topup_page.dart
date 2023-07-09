@@ -85,7 +85,9 @@ class TopupPage extends StatelessWidget {
                               ],
                             );
                           }
-                          return Container();
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
                         },
                       ),
                     ],
@@ -135,7 +137,7 @@ class TopupPage extends StatelessWidget {
                               ],
                             );
                           } else {
-                            print('dwdw');
+                            print('Payment method fail');
                             return Container();
                           }
                         },

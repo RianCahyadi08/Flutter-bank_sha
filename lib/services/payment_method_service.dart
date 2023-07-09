@@ -16,6 +16,7 @@ class PaymentMethodService {
           headers: {
             'Authorization': token,
           });
+      print(res.body);
       if (res.statusCode == 200) {
         return List<PaymentMethodModel>.from(jsonDecode(res.body).map(
                 (paymentMethod) => PaymentMethodModel.fromJson(paymentMethod)))
