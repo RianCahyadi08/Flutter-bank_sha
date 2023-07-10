@@ -138,8 +138,8 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
             height: 66,
           ),
           Wrap(
-            spacing: 40,
-            runSpacing: 40,
+            spacing: 30,
+            runSpacing: 30,
             children: [
               CustomInputButton(
                 title: '1',

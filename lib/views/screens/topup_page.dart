@@ -1,14 +1,21 @@
 import 'package:bank_sha/bloc/auth/auth_bloc.dart';
 import 'package:bank_sha/bloc/auth/payment_method/payment_method_bloc.dart';
+import 'package:bank_sha/models/payment_method_model.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/topup_bank_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TopupPage extends StatelessWidget {
+class TopupPage extends StatefulWidget {
   const TopupPage({super.key});
 
+  @override
+  State<TopupPage> createState() => _TopupPageState();
+}
+
+class _TopupPageState extends State<TopupPage> {
+  PaymentMethodModel? selectedPaymentMethod;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,43 +122,41 @@ class TopupPage extends StatelessWidget {
                         builder: (context, state) {
                           if (state is PaymentMethodSuccess) {
                             return Column(
-                              children: [
-                                TopUpBankItems(
-                                  imgUrl: 'assets/images/img_bca.png',
-                                  nameBank: 'BANK BCA',
-                                  time: '50 mins',
-                                  isSelected: true,
-                                ),
-                                TopUpBankItems(
-                                    imgUrl: 'assets/images/img_bni.png',
-                                    nameBank: 'BANK BNI',
-                                    time: '50 mins'),
-                                TopUpBankItems(
-                                    imgUrl: 'assets/images/img_mandiri.png',
-                                    nameBank: 'BANK Mandiri',
-                                    time: '50 mins'),
-                                TopUpBankItems(
-                                    imgUrl: 'assets/images/img_ocbc.png',
-                                    nameBank: 'BANK OCBC',
-                                    time: '50 mins'),
-                              ],
+                              children:
+                                  state.paymentMethods.map((paymentMethod) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedPaymentMethod = paymentMethod;
+                                    });
+                                  },
+                                  child: TopUpBankItems(
+                                      paymentMethod: paymentMethod,
+                                      isSelected: paymentMethod.id ==
+                                          selectedPaymentMethod?.id,
+                                      time: '50min'),
+                                );
+                              }).toList(),
                             );
                           } else {
-                            print('Payment method fail');
-                            return Container();
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
                           }
                         },
                       ),
                     ),
                     Center(
-                      child: CustomFilledButton(
-                        title: 'Continue',
-                        width: 327,
-                        height: 50,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/topup-amount');
-                        },
-                      ),
+                      child: selectedPaymentMethod == null
+                          ? null
+                          : CustomFilledButton(
+                              title: 'Continue',
+                              width: 327,
+                              height: 50,
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/topup-amount');
+                              },
+                            ),
                     ),
                     SizedBox(
                       height: 57,

@@ -141,8 +141,8 @@ class _TransferAmountPage extends State<TransferAmountPage> {
             height: 66,
           ),
           Wrap(
-            spacing: 40,
-            runSpacing: 40,
+            spacing: 30,
+            runSpacing: 30,
             children: [
               CustomInputButton(
                 title: '1',
