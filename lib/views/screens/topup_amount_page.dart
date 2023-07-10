@@ -1,3 +1,4 @@
+import 'package:bank_sha/models/topup_form_model.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,12 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
-  const TopUpAmountPage({super.key});
+  final TopupFormModel data;
+
+  const TopUpAmountPage({Key? key, required this.data})
+      : super(
+          key: key,
+        );
 
   @override
   State<TopUpAmountPage> createState() => _TopUpAmountPage();

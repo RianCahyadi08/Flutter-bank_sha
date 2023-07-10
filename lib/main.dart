@@ -12,11 +12,11 @@ import 'package:bank_sha/views/screens/profile_page.dart';
 import 'package:bank_sha/views/screens/provider_selected_page.dart';
 import 'package:bank_sha/views/screens/sign_in.dart';
 import 'package:bank_sha/views/screens/sign_up.dart';
-import 'package:bank_sha/views/screens/sign_up_set_card.dart';
-import 'package:bank_sha/views/screens/sign_up_set_profile.dart';
+// import 'package:bank_sha/views/screens/sign_up_set_card.dart';
+// import 'package:bank_sha/views/screens/sign_up_set_profile.dart';
 import 'package:bank_sha/views/screens/sign_up_success.dart';
 import 'package:bank_sha/views/screens/splash.dart';
-import 'package:bank_sha/views/screens/topup_amount_page.dart';
+// import 'package:bank_sha/views/screens/topup_amount_page.dart';
 import 'package:bank_sha/views/screens/topup_page.dart';
 import 'package:bank_sha/views/screens/topup_success_page.dart';
 import 'package:bank_sha/views/screens/transfer_amount_page.dart';
@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
           '/profile-edit-pin': (context) => const ProfileEditPinPage(),
           '/profile-edit-success': (context) => const ProfileEditSuccessPage(),
           '/topup': (context) => const TopupPage(),
-          '/topup-amount': (context) => const TopUpAmountPage(),
+          // '/topup-amount': (context) => const TopUpAmountPage(),
           '/topup-success': (context) => const TopupSuccessPage(),
           '/transfer-choose-user': (context) => const TransferChooseUser(),
           '/transfer-amount': (context) => const TransferAmountPage(),

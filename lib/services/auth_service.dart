@@ -4,8 +4,8 @@ import 'package:bank_sha/models/sign_in_form_model.dart';
 import 'package:bank_sha/models/sign_up_form_model.dart';
 import 'package:bank_sha/models/user_model.dart';
 import 'package:bank_sha/shared/shared_values.dart';
-import 'package:bank_sha/views/screens/sign_in.dart';
-import 'package:bank_sha/views/screens/sign_up.dart';
+// import 'package:bank_sha/views/screens/sign_in.dart';
+// import 'package:bank_sha/views/screens/sign_up.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 

@@ -1,7 +1,9 @@
 import 'package:bank_sha/bloc/auth/auth_bloc.dart';
 import 'package:bank_sha/bloc/auth/payment_method/payment_method_bloc.dart';
 import 'package:bank_sha/models/payment_method_model.dart';
+import 'package:bank_sha/models/topup_form_model.dart';
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/topup_amount_page.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/topup_bank_items.dart';
 import 'package:flutter/material.dart';
@@ -154,7 +156,17 @@ class _TopupPageState extends State<TopupPage> {
                               width: 327,
                               height: 50,
                               onPressed: () {
-                                Navigator.pushNamed(context, '/topup-amount');
+                                // Navigator.pushNamed(context, '/topup-amount');
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TopUpAmountPage(
+                                        data: TopupFormModel(
+                                          paymentMethodCode:
+                                              selectedPaymentMethod?.code,
+                                        ),
+                                      ),
+                                    ));
                               },
                             ),
                     ),
