@@ -1,5 +1,5 @@
 import 'package:bank_sha/bloc/auth/auth_bloc.dart';
-import 'package:bank_sha/bloc/auth/payment_method/payment_method_bloc.dart';
+import 'package:bank_sha/bloc/payment_method/payment_method_bloc.dart';
 import 'package:bank_sha/models/payment_method_model.dart';
 import 'package:bank_sha/models/topup_form_model.dart';
 import 'package:bank_sha/shared/theme.dart';
