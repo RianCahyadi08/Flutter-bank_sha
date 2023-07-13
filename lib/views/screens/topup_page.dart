@@ -148,28 +148,6 @@ class _TopupPageState extends State<TopupPage> {
                         },
                       ),
                     ),
-                    Center(
-                      child: selectedPaymentMethod == null
-                          ? null
-                          : CustomFilledButton(
-                              title: 'Continue',
-                              width: 327,
-                              height: 50,
-                              onPressed: () {
-                                // Navigator.pushNamed(context, '/topup-amount');
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => TopUpAmountPage(
-                                        data: TopupFormModel(
-                                          paymentMethodCode:
-                                              selectedPaymentMethod?.code,
-                                        ),
-                                      ),
-                                    ));
-                              },
-                            ),
-                    ),
                     SizedBox(
                       height: 57,
                     ),
@@ -180,6 +158,33 @@ class _TopupPageState extends State<TopupPage> {
           );
         },
       ),
+      floatingActionButton: (selectedPaymentMethod != null)
+          ? Container(
+              margin: EdgeInsets.only(
+                left: 24,
+                top: 100,
+                right: 24,
+              ),
+              child: CustomFilledButton(
+                title: 'Continue',
+                width: 327,
+                height: 50,
+                onPressed: () {
+                  // Navigator.pushNamed(context, '/topup-amount');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TopUpAmountPage(
+                          data: TopupFormModel(
+                            paymentMethodCode: selectedPaymentMethod?.code,
+                          ),
+                        ),
+                      ));
+                },
+              ),
+            )
+          : Container(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
