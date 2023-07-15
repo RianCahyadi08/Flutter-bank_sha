@@ -1,20 +1,23 @@
+import 'package:bank_sha/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
 
 class TransferRecentUsersItems extends StatelessWidget {
-  final String imgUrl;
-  final String name;
-  final String tag;
-  final bool isVerified;
+  // final String imgUrl;
+  // final String name;
+  // final String tag;
+  // final bool isVerified;
+  final UserModel user;
 
   // ignore: use_key_in_widget_constructors
   const TransferRecentUsersItems({
     Key? key,
-    required this.imgUrl,
-    required this.name,
-    required this.tag,
-    this.isVerified = false,
+    required this.user,
+    // required this.imgUrl,
+    // required this.name,
+    // required this.tag,
+    // this.isVerified = false,
   });
 
   @override
@@ -39,14 +42,19 @@ class TransferRecentUsersItems extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            image: DecorationImage(image: AssetImage(imgUrl)),
+            image: DecorationImage(
+                image: user.profilePicture == null
+                    ? const AssetImage('assets/images/img_recent_users1.png')
+                    : NetworkImage(
+                        user.profilePicture!,
+                      ) as ImageProvider),
           ),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              name,
+              user.name.toString(),
               style: blackTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: medium,
@@ -56,7 +64,7 @@ class TransferRecentUsersItems extends StatelessWidget {
               height: 2,
             ),
             Text(
-              '@$tag',
+              '@${user.username}',
               style: grayTextStyle.copyWith(
                 fontSize: 12,
               ),
@@ -64,7 +72,7 @@ class TransferRecentUsersItems extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        if (isVerified)
+        if (user.verified == 1)
           Row(
             children: [
               Icon(

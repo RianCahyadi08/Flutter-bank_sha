@@ -65,6 +65,7 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
               if (value.isNotEmpty) {
                 userBloc.add(UserGetByUsername(value));
               } else {
+                selectedUser = null;
                 userBloc.add(UserGetRecent());
               }
               setState(() {});
@@ -73,9 +74,6 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
           usernameController.text.isEmpty
               ? buildRecentUsers()
               : buildResultUsers(),
-          const SizedBox(
-            height: 50,
-          ),
         ],
       ),
       floatingActionButton: selectedUser == null
@@ -109,22 +107,21 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
         const SizedBox(
           height: 14,
         ),
-        const TransferRecentUsersItems(
-          imgUrl: 'assets/images/img_recent_users1.png',
-          name: 'Yoanna',
-          tag: 'yoanne',
-          isVerified: true,
-        ),
-        const TransferRecentUsersItems(
-          imgUrl: 'assets/images/img_recent_users2.png',
-          name: 'John Hi',
-          tag: 'jhi',
-        ),
-        const TransferRecentUsersItems(
-          imgUrl: 'assets/images/img_recent_users3.png',
-          name: 'Masayoshi',
-          tag: 'form',
-        ),
+        BlocBuilder<UserBloc, UserState>(
+          builder: (context, state) {
+            if (state is UserSuccess) {
+              return Column(
+                children: state.users.map((user) {
+                  return TransferRecentUsersItems(user: user);
+                }).toList(),
+              );
+            }
+
+            return const Center(
+              child: Text('No data'),
+            );
+          },
+        )
       ]),
     );
   }
@@ -147,21 +144,31 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
           const SizedBox(
             height: 14,
           ),
-          const Wrap(
-            children: [
-              TransferResultUserItems(
-                imgUrl: 'assets/images/img_result1.png',
-                name: 'Yonna Jie',
-                tag: 'yoenna',
-                isVerified: true,
-              ),
-              TransferResultUserItems(
-                imgUrl: 'assets/images/img_result2.png',
-                name: 'Yonne Ka',
-                tag: 'yoenyu',
-                isSelected: true,
-              ),
-            ],
+          BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state is UserSuccess) {
+                return Wrap(
+                  runSpacing: 17,
+                  spacing: 2,
+                  children: state.users.map((user) {
+                    return GestureDetector(
+                      child: TransferResultUserItems(
+                        user: user,
+                        isSelected: user.id == selectedUser?.id,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          selectedUser = user;
+                        });
+                      },
+                    );
+                  }).toList(),
+                );
+              }
+              return const Center(
+                child: Text('No data'),
+              );
+            },
           )
         ],
       ),
