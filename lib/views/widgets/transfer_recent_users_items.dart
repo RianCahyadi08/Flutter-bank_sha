@@ -22,77 +22,97 @@ class TransferRecentUsersItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(
-        bottom: 18,
-      ),
-      padding: const EdgeInsets.all(
-        22,
-      ),
-      decoration: BoxDecoration(
-        color: whiteColor,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(children: [
-        Container(
-          width: 45,
-          height: 45,
-          margin: const EdgeInsets.only(
-            right: 14,
-          ),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-                image: user.profilePicture == null
-                    ? const AssetImage('assets/images/img_recent_users1.png')
-                    : NetworkImage(
-                        user.profilePicture!,
-                      ) as ImageProvider),
-          ),
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.only(
+          bottom: 18,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              user.name.toString(),
-              style: blackTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
+        padding: const EdgeInsets.all(
+          22,
+        ),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(children: [
+          Center(
+            child: Container(
+              width: 45,
+              height: 45,
+              margin: const EdgeInsets.only(
+                right: 14,
+              ),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: user.profilePicture == null
+                        ? const AssetImage(
+                            'assets/images/img_recent_users1.png')
+                        : NetworkImage(
+                            user.profilePicture!,
+                          ) as ImageProvider),
               ),
             ),
-            const SizedBox(
-              height: 2,
-            ),
-            Text(
-              '@${user.username}',
-              style: grayTextStyle.copyWith(
-                fontSize: 12,
-              ),
-            )
-          ],
-        ),
-        const Spacer(),
-        if (user.verified == 1)
-          Row(
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.check_circle,
-                color: greenColor,
-                size: 14,
+              SizedBox(
+                width: 79,
+                child: Text(
+                  user.name.toString(),
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                  softWrap: false,
+                  style: blackTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
               ),
               const SizedBox(
-                width: 4,
+                height: 2,
               ),
-              Text(
-                'Verified',
-                style: greenTextStyle.copyWith(
-                  fontSize: 11,
-                  fontWeight: medium,
+              SizedBox(
+                width: 58,
+                child: Text(
+                  '@${user.username}',
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                  softWrap: false,
+                  style: grayTextStyle.copyWith(
+                    fontSize: 12,
+                  ),
                 ),
               )
             ],
-          )
-      ]),
+          ),
+          const Spacer(),
+          if (user.verified == 1)
+            Row(
+              children: [
+                Icon(
+                  Icons.check_circle,
+                  color: greenColor,
+                  size: 14,
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                Text(
+                  'Verified',
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                  softWrap: false,
+                  style: greenTextStyle.copyWith(
+                    fontSize: 11,
+                    fontWeight: medium,
+                  ),
+                )
+              ],
+            )
+        ]),
+      ),
     );
   }
 }

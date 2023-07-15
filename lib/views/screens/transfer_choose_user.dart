@@ -1,6 +1,8 @@
 import 'package:bank_sha/bloc/user/user_bloc.dart';
+import 'package:bank_sha/models/transfer_form_model.dart';
 import 'package:bank_sha/models/user_model.dart';
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/views/screens/transfer_amount_page.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:bank_sha/views/widgets/forms.dart';
 import 'package:bank_sha/views/widgets/transfer_recent_users_items.dart';
@@ -63,7 +65,7 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
             controller: usernameController,
             onFieldSubmitted: (value) {
               if (value.isNotEmpty) {
-                userBloc.add(UserGetByUsername(value));
+                userBloc.add(UserGetByUsername(usernameController.text));
               } else {
                 selectedUser = null;
                 userBloc.add(UserGetRecent());
@@ -76,17 +78,25 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
               : buildResultUsers(),
         ],
       ),
-      floatingActionButton: selectedUser == null
-          ? Container()
-          : Container(
+      floatingActionButton: selectedUser != null
+          ? Container(
               margin: const EdgeInsets.all(24),
               child: CustomFilledButton(
                 title: 'Continue',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/transfer-amount');
+                  // Navigator.pushNamed(context, '/transfer-amount');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransferAmountPage(
+                          data: TransferFormModel(
+                              sendTo: selectedUser!.username)),
+                    ),
+                  );
                 },
               ),
-            ),
+            )
+          : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -112,13 +122,24 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
             if (state is UserSuccess) {
               return Column(
                 children: state.users.map((user) {
-                  return TransferRecentUsersItems(user: user);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TransferAmountPage(
+                              data: TransferFormModel(sendTo: user.username)),
+                        ),
+                      );
+                    },
+                    child: TransferRecentUsersItems(user: user),
+                  );
                 }).toList(),
               );
             }
 
             return const Center(
-              child: Text('No data'),
+              child: CircularProgressIndicator(),
             );
           },
         )
@@ -166,8 +187,11 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
                 );
               }
               return const Center(
-                child: Text('No data'),
+                child: CircularProgressIndicator(),
               );
+              // return const Center(
+              //   child: Text('No data'),
+              // );
             },
           )
         ],

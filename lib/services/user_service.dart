@@ -35,14 +35,13 @@ class UserService {
           'Authorization': token,
         },
       );
-
       if (res.statusCode == 200) {
-        return List<UserModel>.from(jsonDecode(res.body).map(
+        return List<UserModel>.from(jsonDecode(res.body)['data'].map(
           (user) => UserModel.fromJson(user),
-        ));
+        )).toList();
+      } else {
+        throw jsonDecode(res.body)['message'];
       }
-
-      throw jsonDecode(res.body)['message'];
     } catch (e) {
       rethrow;
     }

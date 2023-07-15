@@ -18,8 +18,8 @@ class PaymentMethodService {
           });
       if (res.statusCode == 200) {
         return List<PaymentMethodModel>.from(jsonDecode(res.body).map(
-                (paymentMethod) => PaymentMethodModel.fromJson(paymentMethod)))
-            .toList();
+          (paymentMethod) => PaymentMethodModel.fromJson(paymentMethod),
+        )).toList();
       } else {
         throw jsonDecode(res.body)['message'];
       }
