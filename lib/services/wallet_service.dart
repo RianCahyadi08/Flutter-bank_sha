@@ -13,8 +13,6 @@ class WalletService {
         'previous_pin': oldPin,
         'new_pin': newPin,
       });
-      print(token);
-      print(res);
 
       if (res.statusCode != 200) {
         throw jsonDecode(res.body)['message'];

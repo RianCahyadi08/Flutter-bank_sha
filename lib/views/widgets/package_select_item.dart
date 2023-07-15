@@ -6,6 +6,7 @@ class PackageSelectItem extends StatelessWidget {
   final String price;
   final bool isSelected;
 
+  // ignore: use_key_in_widget_constructors
   const PackageSelectItem({
     Key? key,
     required this.amount,
@@ -35,7 +36,7 @@ class PackageSelectItem extends StatelessWidget {
             fontWeight: medium,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 6,
         ),
         Text(

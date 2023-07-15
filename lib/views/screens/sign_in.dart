@@ -47,17 +47,17 @@ class _SignInState extends State<SignIn> {
           );
         }
         return ListView(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           children: [
             Container(
               width: 155,
               height: 50,
-              margin: EdgeInsets.only(top: 100),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(top: 100),
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/img_logo_white.png'))),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             Text(
@@ -65,11 +65,11 @@ class _SignInState extends State<SignIn> {
               style:
                   blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
-              padding: EdgeInsets.all(22),
+              padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20), color: whiteColor),
               child: Column(
@@ -79,7 +79,7 @@ class _SignInState extends State<SignIn> {
                     title: 'Email Address',
                     controller: emailController,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   CustomFormField(
@@ -87,7 +87,7 @@ class _SignInState extends State<SignIn> {
                     obscureText: true,
                     controller: passwordController,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Align(
@@ -98,7 +98,7 @@ class _SignInState extends State<SignIn> {
                           fontSize: 14, fontWeight: regular),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Column(
@@ -122,7 +122,7 @@ class _SignInState extends State<SignIn> {
                           //     context, '/homepage', (route) => false);
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       CustomTextButton(

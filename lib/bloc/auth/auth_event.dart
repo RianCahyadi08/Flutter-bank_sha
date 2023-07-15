@@ -12,7 +12,6 @@ class AuthCheckEmail extends AuthEvent {
   const AuthCheckEmail(this.email);
 
   @override
-  // TODO: implement props
   List<Object> get props => [email];
 }
 
@@ -30,7 +29,6 @@ class AuthLogin extends AuthEvent {
   const AuthLogin(this.data);
 
   @override
-  // TODO: implement props
   List<Object> get props => [data];
 }
 

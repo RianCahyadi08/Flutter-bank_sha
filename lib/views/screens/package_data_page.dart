@@ -12,10 +12,10 @@ class PackageDataPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Paket Data'),
+        title: const Text('Paket Data'),
       ),
       body: ListView(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           left: 24,
           top: 40,
           right: 24,
@@ -32,14 +32,14 @@ class PackageDataPage extends StatelessWidget {
                   fontWeight: semiBold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
-              CustomFormField(
+              const CustomFormField(
                 title: '+628',
                 isShowTitle: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Text(
@@ -49,7 +49,7 @@ class PackageDataPage extends StatelessWidget {
                   fontWeight: semiBold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
               Wrap(
@@ -58,24 +58,24 @@ class PackageDataPage extends StatelessWidget {
                 children: [
                   PackageSelectItem(
                     amount: '10GB',
-                    price: '${formatCurrency(218000)}',
+                    price: formatCurrency(218000),
                   ),
                   PackageSelectItem(
                     amount: '25GB',
-                    price: '${formatCurrency(420000)}',
+                    price: formatCurrency(420000),
                   ),
                   PackageSelectItem(
                     amount: '40GB',
-                    price: '${formatCurrency(2500000)}',
+                    price: formatCurrency(2500000),
                     isSelected: true,
                   ),
                   PackageSelectItem(
                     amount: '99GB',
-                    price: '${formatCurrency(5000000)}',
+                    price: formatCurrency(5000000),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 85,
               ),
               CustomFilledButton(
@@ -83,6 +83,7 @@ class PackageDataPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 onPressed: () async {
                   if (await Navigator.pushNamed(context, '/pin') == true) {
+                    // ignore: use_build_context_synchronously
                     Navigator.pushNamedAndRemoveUntil(
                       context,
                       '/package-data-success',

@@ -9,6 +9,7 @@ class TransferResultUserItems extends StatelessWidget {
   final bool isVerified;
   final bool isSelected;
 
+  // ignore: use_key_in_widget_constructors
   const TransferResultUserItems({
     Key? key,
     required this.imgUrl,

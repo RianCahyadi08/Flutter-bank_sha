@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
@@ -10,6 +8,7 @@ class TransferRecentUsersItems extends StatelessWidget {
   final String tag;
   final bool isVerified;
 
+  // ignore: use_key_in_widget_constructors
   const TransferRecentUsersItems({
     Key? key,
     required this.imgUrl,
@@ -24,7 +23,7 @@ class TransferRecentUsersItems extends StatelessWidget {
       margin: const EdgeInsets.only(
         bottom: 18,
       ),
-      padding: EdgeInsets.all(
+      padding: const EdgeInsets.all(
         22,
       ),
       decoration: BoxDecoration(
@@ -35,7 +34,7 @@ class TransferRecentUsersItems extends StatelessWidget {
         Container(
           width: 45,
           height: 45,
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             right: 14,
           ),
           decoration: BoxDecoration(
@@ -53,7 +52,7 @@ class TransferRecentUsersItems extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
@@ -64,7 +63,7 @@ class TransferRecentUsersItems extends StatelessWidget {
             )
           ],
         ),
-        Spacer(),
+        const Spacer(),
         if (isVerified)
           Row(
             children: [
@@ -73,7 +72,7 @@ class TransferRecentUsersItems extends StatelessWidget {
                 color: greenColor,
                 size: 14,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 4,
               ),
               Text(

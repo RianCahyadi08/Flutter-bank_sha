@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:bank_sha/bloc/auth/auth_bloc.dart';
 import 'package:bank_sha/shared/theme.dart';
-import 'package:bank_sha/views/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

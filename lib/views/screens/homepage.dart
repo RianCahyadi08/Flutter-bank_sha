@@ -126,7 +126,7 @@ class HomePage extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: state.user.profilePicture == null
-                            ? AssetImage(
+                            ? const AssetImage(
                                 'assets/images/img_profile.png',
                               )
                             : NetworkImage(
@@ -167,7 +167,6 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         if (state is AuthSuccess) {
-          print(state.user.cardNumber);
           return Container(
             margin: const EdgeInsets.only(top: 32),
             padding: const EdgeInsets.only(left: 30, top: 30),
@@ -219,8 +218,8 @@ class HomePage extends StatelessWidget {
 
   Widget buildLevel() {
     return Container(
-        margin: EdgeInsets.only(top: 20),
-        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 22),
+        margin: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 22),
         width: 327,
         // height: 80,
         decoration: BoxDecoration(
@@ -235,7 +234,7 @@ class HomePage extends StatelessWidget {
                   style:
                       blackTextStyle.copyWith(fontSize: 14, fontWeight: medium),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '55% ',
                   style: greenTextStyle.copyWith(
@@ -248,7 +247,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ClipRRect(
@@ -266,7 +265,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildServices(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -274,7 +273,7 @@ class HomePage extends StatelessWidget {
             'Do Something',
             style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 14,
           ),
           Row(
@@ -293,7 +292,7 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, '/transfer-choose-user');
                 },
               ),
-              HomeServiceItems(
+              const HomeServiceItems(
                   iconUrl: 'assets/images/ic_withdraw.png', title: 'Withdraw'),
               HomeServiceItems(
                   iconUrl: 'assets/images/ic_more.png',
@@ -362,7 +361,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildSendAgain() {
     return Container(
-      margin: EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -370,10 +369,10 @@ class HomePage extends StatelessWidget {
             'Send Again',
             style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 14,
           ),
-          SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
@@ -398,7 +397,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildFriendlyTips() {
     return Container(
-      margin: EdgeInsets.only(top: 30, bottom: 50),
+      margin: const EdgeInsets.only(top: 30, bottom: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -406,7 +405,7 @@ class HomePage extends StatelessWidget {
             'Friendly Tips',
             style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 14,
           ),
           Wrap(
@@ -449,7 +448,7 @@ class MoreDialog extends StatelessWidget {
       content: Container(
         height: 327,
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: lightBackgroundColor,
@@ -464,7 +463,7 @@ class MoreDialog extends StatelessWidget {
                 fontWeight: semiBold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 13,
             ),
             Wrap(
@@ -478,19 +477,19 @@ class MoreDialog extends StatelessWidget {
                     Navigator.pushNamed(context, '/provider-selected');
                   },
                 ),
-                HomeServiceItems(
+                const HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_water.png',
                     title: 'Water'),
-                HomeServiceItems(
+                const HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_stream.png',
                     title: 'Stream'),
-                HomeServiceItems(
+                const HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_movie.png',
                     title: 'Movie'),
-                HomeServiceItems(
+                const HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_food.png',
                     title: 'Food'),
-                HomeServiceItems(
+                const HomeServiceItems(
                     iconUrl: 'assets/images/ic_product_travel.png',
                     title: 'Travel'),
               ],

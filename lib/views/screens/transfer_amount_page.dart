@@ -2,9 +2,8 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
+// ignore: duplicate_import
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TransferAmountPage extends StatefulWidget {
   const TransferAmountPage({super.key});
@@ -35,14 +34,13 @@ class _TransferAmountPage extends State<TransferAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: CurrencyFormat.converterToIdr('0'));
 
+  @override
   void initState() {
     super.initState();
     amountController.addListener(() {
       final text = amountController.text;
       amountController.value
           .copyWith(text: CurrencyFormat.converterToIdr(text));
-      print(amountController.value
-          .copyWith(text: CurrencyFormat.converterToIdr(text)));
     });
   }
 
@@ -89,13 +87,13 @@ class _TransferAmountPage extends State<TransferAmountPage> {
     return Scaffold(
       backgroundColor: darkBackgroundColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 58,
         ),
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 40.0),
-            padding: EdgeInsets.only(
+            margin: const EdgeInsets.symmetric(vertical: 40.0),
+            padding: const EdgeInsets.only(
               top: 40,
             ),
             child: Center(
@@ -106,7 +104,7 @@ class _TransferAmountPage extends State<TransferAmountPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 67,
           ),
           Align(
@@ -137,7 +135,7 @@ class _TransferAmountPage extends State<TransferAmountPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 66,
           ),
           Wrap(
@@ -198,7 +196,7 @@ class _TransferAmountPage extends State<TransferAmountPage> {
                   addAmount('9');
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 width: 60,
                 height: 60,
               ),
@@ -230,13 +228,14 @@ class _TransferAmountPage extends State<TransferAmountPage> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomFilledButton(
             title: 'Continue',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
+                // ignore: use_build_context_synchronously
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   '/transfer-success',
@@ -245,11 +244,11 @@ class _TransferAmountPage extends State<TransferAmountPage> {
               }
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           CustomTextButton(title: 'Terms & Conditions', onPressed: () {}),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
         ],

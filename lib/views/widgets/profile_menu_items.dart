@@ -6,6 +6,7 @@ class ProfileMenuItems extends StatelessWidget {
   final String nameMenu;
   final VoidCallback? onTap;
 
+  // ignore: use_key_in_widget_constructors
   const ProfileMenuItems(
       {Key? key, required this.iconUrl, required this.nameMenu, this.onTap});
 
@@ -14,7 +15,7 @@ class ProfileMenuItems extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(bottom: 30),
+        margin: const EdgeInsets.only(bottom: 30),
         child: Row(
           children: [
             Image.asset(
@@ -22,7 +23,7 @@ class ProfileMenuItems extends StatelessWidget {
               width: 24,
               height: 24,
             ),
-            SizedBox(
+            const SizedBox(
               width: 18,
             ),
             Text(

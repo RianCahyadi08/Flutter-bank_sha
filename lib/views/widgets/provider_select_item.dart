@@ -8,6 +8,7 @@ class ProviderSelectItem extends StatelessWidget {
   final String statusProvider;
   final bool isSelected;
 
+  // ignore: use_key_in_widget_constructors
   const ProviderSelectItem({
     Key? key,
     required this.imgUrl,

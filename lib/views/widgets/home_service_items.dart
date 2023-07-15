@@ -20,8 +20,8 @@ class HomeServiceItems extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(22),
-            margin: EdgeInsets.only(
+            padding: const EdgeInsets.all(22),
+            margin: const EdgeInsets.only(
               bottom: 8,
             ),
             width: 70,

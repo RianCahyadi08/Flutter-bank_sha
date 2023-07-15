@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   final TopupFormModel data;
@@ -47,14 +45,13 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: CurrencyFormat.converterToIdr('0'));
 
+  @override
   void initState() {
     super.initState();
     amountController.addListener(() {
       final text = amountController.text;
       amountController.value
           .copyWith(text: CurrencyFormat.converterToIdr(text));
-      print(amountController.value
-          .copyWith(text: CurrencyFormat.converterToIdr(text)));
     });
   }
 
@@ -106,11 +103,11 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
           listener: (context, state) async {
             if (state is TopupFail) {
               showCustomSnackBar(context, state.e);
-              print(state.e);
             }
 
             if (state is TopupSuccess) {
               await launchUrl(Uri.parse(state.redirectUrl));
+              // ignore: use_build_context_synchronously
               context.read<AuthBloc>().add(
                     AuthUpdateBalance(
                       int.parse(
@@ -118,6 +115,7 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                       ),
                     ),
                   );
+              // ignore: use_build_context_synchronously
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 '/topup-success',
@@ -127,12 +125,12 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
           },
           builder: (context, state) {
             return ListView(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 58,
               ),
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 40.0),
+                  margin: const EdgeInsets.symmetric(vertical: 40.0),
                   child: Center(
                     child: Text(
                       'Total Amount',
@@ -141,7 +139,7 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 37,
                 ),
                 Align(
@@ -172,7 +170,7 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 66,
                 ),
                 Wrap(
@@ -233,7 +231,7 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                         addAmount('9');
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 60,
                       height: 60,
                     ),
@@ -265,7 +263,7 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 CustomFilledButton(
@@ -273,11 +271,13 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                   onPressed: () async {
                     if (await Navigator.pushNamed(context, '/pin') == true) {
                       // await launch('https://demo.midtrans.com/');
+                      // ignore: use_build_context_synchronously
                       final authState = context.read<AuthBloc>().state;
                       String pin = '';
                       if (authState is AuthSuccess) {
                         pin = authState.user.pin!;
                       }
+                      // ignore: use_build_context_synchronously
                       context.read<TopupBloc>().add(
                             TopUpPost(
                               widget.data.copyWith(
@@ -290,11 +290,11 @@ class _TopUpAmountPage extends State<TopUpAmountPage> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 CustomTextButton(title: 'Terms & Conditions', onPressed: () {}),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
               ],

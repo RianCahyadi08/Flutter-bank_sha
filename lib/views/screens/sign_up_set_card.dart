@@ -6,7 +6,6 @@ import 'package:bank_sha/models/sign_up_form_model.dart';
 import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/buttons.dart';
-import 'package:bank_sha/views/widgets/forms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -14,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 class SignUpSetCard extends StatefulWidget {
   final SignUpFormModel data;
 
+  // ignore: use_key_in_widget_constructors
   const SignUpSetCard({
     Key? key,
     required this.data,
@@ -41,7 +41,6 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
         listener: (context, state) {
           if (state is AuthFail) {
             showCustomSnackBar(context, state.e);
-            print(state.e);
           }
 
           if (state is AuthSuccess) {
@@ -131,11 +130,10 @@ class _SignUpSetCardState extends State<SignUpSetCard> {
                                   widget.data.copyWith(
                                     ktp: selectedImage == null
                                         ? null
-                                        : 'data:image/png;base64,' +
-                                            base64Encode(
-                                              File(selectedImage!.path)
-                                                  .readAsBytesSync(),
-                                            ),
+                                        : 'data:image/png;base64,${base64Encode(
+                                            File(selectedImage!.path)
+                                                .readAsBytesSync(),
+                                          )}',
                                   ),
                                 ),
                               );

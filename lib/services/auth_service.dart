@@ -137,7 +137,7 @@ class AuthService {
     String? value = await storage.read(key: 'token');
 
     if (value != null) {
-      token = 'Bearer ' + value;
+      token = 'Bearer $value';
     }
     return token;
   }

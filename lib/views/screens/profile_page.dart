@@ -46,14 +46,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
           if (state is AuthSuccess) {
             return ListView(
-              padding: EdgeInsets.only(left: 24, right: 24),
+              padding: const EdgeInsets.only(left: 24, right: 24),
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.only(top: 22, right: 30, bottom: 26, left: 30),
+                  padding: const EdgeInsets.only(
+                      top: 22, right: 30, bottom: 26, left: 30),
                   decoration: BoxDecoration(
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(20)),
@@ -66,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: state.user.profilePicture == null
-                                ? AssetImage(
+                                ? const AssetImage(
                                     'assets/images/img_profile.png',
                                   )
                                 : NetworkImage(
@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               )
                             : null,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       Text(
@@ -102,7 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: blackTextStyle.copyWith(
                             fontSize: 18, fontWeight: medium),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       ProfileMenuItems(
@@ -112,6 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           // Navigator.pushNamed(context, '/pin');
                           if (await Navigator.pushNamed(context, '/pin') ==
                               true) {
+                            // ignore: use_build_context_synchronously
                             Navigator.pushNamed(context, '/profile-edit');
                           }
                         },
@@ -122,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         onTap: () async {
                           if (await Navigator.pushNamed(context, '/pin') ==
                               true) {
+                            // ignore: use_build_context_synchronously
                             Navigator.pushNamed(context, '/profile-edit-pin');
                           }
                         },
@@ -151,11 +153,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 87,
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 50),
+                  margin: const EdgeInsets.only(bottom: 50),
                   child: CustomTextButton(
                     title: 'Report a Problem',
                     onPressed: () {},

@@ -107,7 +107,7 @@ class ProviderSelectedPage extends StatelessWidget {
                     Navigator.pushNamed(context, '/package-data');
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 57,
                 ),
               ],

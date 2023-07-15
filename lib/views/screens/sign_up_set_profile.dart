@@ -37,13 +37,13 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 100),
+            margin: const EdgeInsets.symmetric(vertical: 100),
             width: 155,
             height: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/img_logo_white.png'))),
           ),
@@ -51,11 +51,11 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
             'Join Us to Unlock\nYour Growth',
             style: blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 52,
           ),
           Container(
-            padding: EdgeInsets.all(22),
+            padding: const EdgeInsets.all(22),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: whiteColor),
             child: Column(
@@ -67,12 +67,6 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                     setState(() {
                       selectedImage = image;
                     });
-                    print(
-                      'data:image/png;base64,' +
-                          base64Encode(
-                            File(selectedImage!.path).readAsBytesSync(),
-                          ),
-                    );
                   },
                   child: Container(
                     width: 120,
@@ -99,7 +93,7 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                           ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Text(
@@ -107,7 +101,7 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                   style:
                       blackTextStyle.copyWith(fontSize: 18, fontWeight: medium),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 CustomFormField(
@@ -116,7 +110,7 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                   controller: pinController,
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 CustomFilledButton(
@@ -127,16 +121,16 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
+                          // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
                           builder: (ContentType) => SignUpSetCard(
                             data: widget.data.copyWith(
                               pin: pinController.text,
                               profilePicture: selectedImage == null
                                   ? null
-                                  : 'data:image/png;base64,' +
-                                      base64Encode(
-                                        File(selectedImage!.path)
-                                            .readAsBytesSync(),
-                                      ),
+                                  : 'data:image/png;base64,${base64Encode(
+                                      File(selectedImage!.path)
+                                          .readAsBytesSync(),
+                                    )}',
                             ),
                           ),
                         ),

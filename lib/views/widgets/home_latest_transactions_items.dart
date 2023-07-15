@@ -7,6 +7,7 @@ class HomeLatestTransactionsItems extends StatelessWidget {
   final String date;
   final String value;
 
+  // ignore: use_key_in_widget_constructors
   const HomeLatestTransactionsItems({
     Key? key,
     required this.iconUrl,
@@ -18,7 +19,7 @@ class HomeLatestTransactionsItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 18),
+      margin: const EdgeInsets.only(bottom: 18),
       child: Row(children: [
         Image.asset(
           iconUrl,

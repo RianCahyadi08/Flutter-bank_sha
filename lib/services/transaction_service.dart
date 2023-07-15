@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:bank_sha/models/payment_method_model.dart';
 import 'package:bank_sha/models/topup_form_model.dart';
 import 'package:bank_sha/services/auth_service.dart';
 import 'package:bank_sha/shared/shared_values.dart';

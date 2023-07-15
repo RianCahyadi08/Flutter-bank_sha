@@ -5,6 +5,7 @@ class HomeUserItems extends StatelessWidget {
   final String imageUrl;
   final String username;
 
+  // ignore: use_key_in_widget_constructors
   const HomeUserItems(
       {Key? key, required this.imageUrl, required this.username});
 
@@ -13,7 +14,7 @@ class HomeUserItems extends StatelessWidget {
     return Container(
       width: 90,
       height: 120,
-      margin: EdgeInsets.only(right: 17),
+      margin: const EdgeInsets.only(right: 17),
       decoration: BoxDecoration(
           color: whiteColor, borderRadius: BorderRadius.circular(20)),
       child: Column(
@@ -22,7 +23,7 @@ class HomeUserItems extends StatelessWidget {
           Container(
             width: 45,
             height: 45,
-            margin: EdgeInsets.only(bottom: 13),
+            margin: const EdgeInsets.only(bottom: 13),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(

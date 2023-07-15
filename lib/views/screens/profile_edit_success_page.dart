@@ -20,7 +20,7 @@ class ProfileEditSuccessPage extends StatelessWidget {
                 fontWeight: semiBold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 26,
             ),
             Text(
@@ -28,7 +28,7 @@ class ProfileEditSuccessPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: grayTextStyle.copyWith(fontSize: 16, fontWeight: regular),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             CustomFilledButton(

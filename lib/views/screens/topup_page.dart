@@ -36,75 +36,73 @@ class _TopupPageState extends State<TopupPage> {
           return ListView(
             children: [
               Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   left: 24,
                   top: 40,
                   // right: 130,
                   bottom: 40,
                 ),
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Wallet',
-                        style: blackTextStyle.copyWith(
-                          fontSize: 16,
-                          fontWeight: semiBold,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Wallet',
+                      style: blackTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: semiBold,
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      BlocBuilder<AuthBloc, AuthState>(
-                        builder: (context, state) {
-                          if (state is AuthSuccess) {
-                            return Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/img_wallet.png',
-                                  width: 80,
-                                  height: 55,
-                                ),
-                                SizedBox(
-                                  width: 16,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      state.user.cardNumber!
-                                          .replaceAllMapped(RegExp(r".{4}"),
-                                              (match) => "${match.group(0)} ")
-                                          .toString(),
-                                      style: blackTextStyle.copyWith(
-                                        fontSize: 16,
-                                        fontWeight: medium,
-                                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    BlocBuilder<AuthBloc, AuthState>(
+                      builder: (context, state) {
+                        if (state is AuthSuccess) {
+                          return Row(
+                            children: [
+                              Image.asset(
+                                'assets/images/img_wallet.png',
+                                width: 80,
+                                height: 55,
+                              ),
+                              const SizedBox(
+                                width: 16,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    state.user.cardNumber!
+                                        .replaceAllMapped(RegExp(r".{4}"),
+                                            (match) => "${match.group(0)} ")
+                                        .toString(),
+                                    style: blackTextStyle.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: medium,
                                     ),
-                                    Text(
-                                      state.user.name.toString(),
-                                      style: grayTextStyle.copyWith(
-                                        fontSize: 12,
-                                        fontWeight: regular,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            );
-                          }
-                          return const Center(
-                            child: CircularProgressIndicator(),
+                                  ),
+                                  Text(
+                                    state.user.name.toString(),
+                                    style: grayTextStyle.copyWith(
+                                      fontSize: 12,
+                                      fontWeight: regular,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
                           );
-                        },
-                      ),
-                    ],
-                  ),
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 24, right: 24),
+                margin: const EdgeInsets.only(left: 24, right: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -141,14 +139,14 @@ class _TopupPageState extends State<TopupPage> {
                               }).toList(),
                             );
                           } else {
-                            return Center(
+                            return const Center(
                               child: CircularProgressIndicator(),
                             );
                           }
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 57,
                     ),
                   ],
@@ -160,7 +158,7 @@ class _TopupPageState extends State<TopupPage> {
       ),
       floatingActionButton: (selectedPaymentMethod != null)
           ? Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 24,
                 top: 100,
                 right: 24,

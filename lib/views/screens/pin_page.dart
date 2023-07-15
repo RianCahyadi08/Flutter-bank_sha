@@ -72,7 +72,7 @@ class _PinPageState extends State<PinPage> {
                 style:
                     whiteTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 72,
               ),
               SizedBox(
@@ -97,7 +97,7 @@ class _PinPageState extends State<PinPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 66,
               ),
               Wrap(
@@ -158,7 +158,7 @@ class _PinPageState extends State<PinPage> {
                       addPin('9');
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 60,
                     height: 60,
                   ),

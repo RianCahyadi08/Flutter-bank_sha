@@ -45,7 +45,6 @@ class _ProfileEditPinPageState extends State<ProfileEditPinPage> {
           }
 
           if (state is AuthSuccess) {
-            print('Update berhasil');
             Navigator.pushNamedAndRemoveUntil(
                 context, '/profile-edit-success', (route) => false);
           }
@@ -58,16 +57,16 @@ class _ProfileEditPinPageState extends State<ProfileEditPinPage> {
           }
 
           return ListView(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 24,
               top: 0,
               right: 24,
             ),
             children: [
               Container(
-                margin: EdgeInsets.only(top: 40),
-                padding:
-                    EdgeInsets.only(left: 22, top: 22, right: 22, bottom: 16),
+                margin: const EdgeInsets.only(top: 40),
+                padding: const EdgeInsets.only(
+                    left: 22, top: 22, right: 22, bottom: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: whiteColor,
@@ -80,7 +79,7 @@ class _ProfileEditPinPageState extends State<ProfileEditPinPage> {
                       controller: oldPinController,
                       obscureText: true,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     CustomFormField(
@@ -88,7 +87,7 @@ class _ProfileEditPinPageState extends State<ProfileEditPinPage> {
                       controller: newPinController,
                       obscureText: true,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     CustomFilledButton(

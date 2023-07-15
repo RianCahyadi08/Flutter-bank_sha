@@ -17,7 +17,7 @@ class TopupSuccessPage extends StatelessWidget {
             style: blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 26,
           ),
           Text(
@@ -25,7 +25,7 @@ class TopupSuccessPage extends StatelessWidget {
             style: grayTextStyle.copyWith(fontSize: 16, fontWeight: regular),
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomFilledButton(

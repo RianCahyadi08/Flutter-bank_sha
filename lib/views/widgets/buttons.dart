@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:bank_sha/shared/theme.dart';
 
@@ -9,6 +7,7 @@ class CustomFilledButton extends StatelessWidget {
   final double height;
   final VoidCallback? onPressed;
 
+  // ignore: use_key_in_widget_constructors
   const CustomFilledButton(
       {Key? key,
       required this.title,
@@ -23,14 +22,14 @@ class CustomFilledButton extends StatelessWidget {
       height: height,
       child: TextButton(
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
-        ),
         style: TextButton.styleFrom(
             backgroundColor: purpleColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(56))),
+        child: Text(
+          title,
+          style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+        ),
       ),
     );
   }
@@ -42,6 +41,7 @@ class CustomTextButton extends StatelessWidget {
   final double height;
   final VoidCallback? onPressed;
 
+  // ignore: use_key_in_widget_constructors
   const CustomTextButton(
       {Key? key,
       required this.title,
@@ -69,6 +69,7 @@ class CustomInputButton extends StatelessWidget {
   final String title;
   final VoidCallback? onTap;
 
+  // ignore: use_key_in_widget_constructors
   const CustomInputButton({Key? key, required this.title, this.onTap});
 
   @override

@@ -10,6 +10,7 @@ class TopUpBankItems extends StatelessWidget {
   final bool isSelected;
   final VoidCallback? onTap;
 
+  // ignore: use_key_in_widget_constructors
   const TopUpBankItems(
       {Key? key,
       required this.paymentMethod,

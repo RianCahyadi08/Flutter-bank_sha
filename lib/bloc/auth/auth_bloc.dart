@@ -5,6 +5,7 @@ import 'package:bank_sha/models/user_model.dart';
 import 'package:bank_sha/services/auth_service.dart';
 import 'package:bank_sha/services/user_service.dart';
 import 'package:bank_sha/services/wallet_service.dart';
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -23,7 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (res == false) {
             emit(AuthCheckEmailSuccess());
           } else {
-            emit(AuthFail('Email sudah terpakai'));
+            emit(const AuthFail('Email sudah terpakai'));
           }
         } catch (e) {
           emit(AuthFail(e.toString()));
@@ -41,7 +42,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       if (event is AuthLogin) {
-        print('Login');
         try {
           emit(AuthLoading());
           final user = await AuthService().login(event.data);
@@ -65,7 +65,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       if (event is AuthUpdateUser) {
-        print('Update user');
         try {
           final updatedUser = (state as AuthSuccess).user.copyWith(
                 username: event.data.username,
@@ -83,7 +82,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       if (event is AuthUpdatePin) {
-        print('Sedang melakuan update pin user');
         try {
           final updatePin = (state as AuthSuccess).user.copyWith(
                 pin: event.newPin,
@@ -98,7 +96,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       if (event is AuthLogout) {
-        print('Sedang melakukan logout!');
         try {
           emit(AuthLoading());
           await AuthService().logout();

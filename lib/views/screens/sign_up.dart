@@ -52,18 +52,18 @@ class _SignUpState extends State<SignUp> {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
           return ListView(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             children: [
               Container(
-                margin: EdgeInsets.symmetric(vertical: 100),
+                margin: const EdgeInsets.symmetric(vertical: 100),
                 width: 155,
                 height: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('assets/images/img_logo_white.png'))),
               ),
@@ -72,11 +72,11 @@ class _SignUpState extends State<SignUp> {
                 style:
                     blackTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
-                padding: EdgeInsets.all(22),
+                padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20), color: whiteColor),
                 child: Column(
@@ -86,14 +86,14 @@ class _SignUpState extends State<SignUp> {
                       title: 'Full Name',
                       controller: nameController,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     CustomFormField(
                       title: 'Email Address',
                       controller: emailController,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     CustomFormField(
@@ -101,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                       obscureText: true,
                       controller: passwordController,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     CustomFilledButton(
@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     CustomTextButton(

@@ -7,6 +7,7 @@ class HomeTipsItems extends StatelessWidget {
   final String title;
   final Uri url;
 
+  // ignore: use_key_in_widget_constructors
   const HomeTipsItems(
       {Key? key,
       required this.imageUrl,
@@ -32,7 +33,8 @@ class HomeTipsItems extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(20)),
               child: Image.asset(
                 imageUrl,
                 width: 155,
@@ -40,7 +42,7 @@ class HomeTipsItems extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Padding(
