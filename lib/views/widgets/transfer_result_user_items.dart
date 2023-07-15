@@ -31,7 +31,7 @@ class TransferResultUserItems extends StatelessWidget {
           horizontal: 14,
           vertical: 22,
         ),
-        width: 155,
+        width: 147,
         height: 171,
         decoration: BoxDecoration(
             color: whiteColor,

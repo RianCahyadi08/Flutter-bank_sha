@@ -149,7 +149,7 @@ class _TransferChooseUserState extends State<TransferChooseUser> {
               if (state is UserSuccess) {
                 return Wrap(
                   runSpacing: 17,
-                  spacing: 2,
+                  spacing: 17,
                   children: state.users.map((user) {
                     return GestureDetector(
                       child: TransferResultUserItems(
