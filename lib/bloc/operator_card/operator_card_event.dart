@@ -7,4 +7,4 @@ abstract class OperatorCardEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetOperatorCard extends OperatorCardEvent {}
+class OperatorCardGet extends OperatorCardEvent {}

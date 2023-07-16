@@ -1,5 +1,6 @@
 import 'package:bank_sha/models/operator_card_model.dart';
 import 'package:bank_sha/services/operator_card_service.dart';
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 

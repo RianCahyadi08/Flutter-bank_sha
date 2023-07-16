@@ -17,7 +17,7 @@ class PackageSelectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 155,
+      width: 147,
       height: 171,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
