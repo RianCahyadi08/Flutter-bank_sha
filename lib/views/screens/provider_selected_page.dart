@@ -168,7 +168,9 @@ class _ProviderSelectedPageState extends State<ProviderSelectedPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PackageDataPage(),
+                        builder: (context) => PackageDataPage(
+                          operatorCard: selectedOperatorCard!,
+                        ),
                       ));
                 },
               ),
