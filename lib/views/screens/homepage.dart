@@ -467,13 +467,14 @@ class MoreDialog extends StatelessWidget {
               height: 13,
             ),
             Wrap(
-              spacing: 29,
+              spacing: 21,
               runSpacing: 29,
               children: [
                 HomeServiceItems(
                   iconUrl: 'assets/images/ic_product_data.png',
                   title: 'Data',
                   onTap: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ),);
                     Navigator.pushNamed(context, '/provider-selected');
                   },
                 ),
