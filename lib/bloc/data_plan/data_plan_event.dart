@@ -7,7 +7,7 @@ abstract class DataPlanEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class DataPlanPost extends DataPlanEvent{
+class DataPlanPost extends DataPlanEvent {
   final DataPlanFormModel data;
   const DataPlanPost(this.data);
   @override

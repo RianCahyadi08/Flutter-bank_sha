@@ -10,12 +10,11 @@ part 'data_plan_state.dart';
 class DataPlanBloc extends Bloc<DataPlanEvent, DataPlanState> {
   DataPlanBloc() : super(DataPlanInitial()) {
     on<DataPlanEvent>((event, emit) async {
-
       if (event is DataPlanPost) {
         try {
-          DataPlanLoading();
+          emit(DataPlanLoading());
           await TransactionService().dataPlan(event.data);
-          DataPlanSuccess();
+          emit(DataPlanSuccess());
         } catch (e) {
           emit(DataPlanFail(e.toString()));
         }
