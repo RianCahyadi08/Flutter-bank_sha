@@ -1,4 +1,5 @@
 import 'package:bank_sha/bloc/auth/auth_bloc.dart';
+import 'package:bank_sha/bloc/transaction/transaction_bloc.dart';
 import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/views/widgets/home_latest_transactions_items.dart';
@@ -312,7 +313,9 @@ class HomePage extends StatelessWidget {
 
   Widget buildLatestTransactions() {
     return Container(
-      margin: const EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
           'Latest Transactions',
@@ -320,39 +323,33 @@ class HomePage extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(top: 14),
-          padding: const EdgeInsets.only(left: 22, top: 22, right: 21),
+          padding: const EdgeInsets.only(
+            left: 22,
+            top: 22,
+            right: 21,
+          ),
           width: 327,
           height: 356,
           decoration: BoxDecoration(
               color: whiteColor, borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            children: [
-              HomeLatestTransactionsItems(
-                  iconUrl: 'assets/images/ic_transaction_cat1.png',
-                  title: 'Top Up',
-                  date: 'Yesterday',
-                  value: '+ ${formatCurrency(450000, symbol: '')}'),
-              HomeLatestTransactionsItems(
-                  iconUrl: 'assets/images/ic_transaction_cat2.png',
-                  title: 'Cashback',
-                  date: 'Sep 11',
-                  value: '+ ${formatCurrency(22000, symbol: '')}'),
-              HomeLatestTransactionsItems(
-                  iconUrl: 'assets/images/ic_transaction_cat3.png',
-                  title: 'Withdraw',
-                  date: 'Sep 2',
-                  value: '- ${formatCurrency(5000, symbol: '')}'),
-              HomeLatestTransactionsItems(
-                  iconUrl: 'assets/images/ic_transaction_cat4.png',
-                  title: 'Transfer',
-                  date: 'Aug 27',
-                  value: '- ${formatCurrency(13500, symbol: '')}'),
-              HomeLatestTransactionsItems(
-                  iconUrl: 'assets/images/ic_transaction_cat5.png',
-                  title: 'Eletric',
-                  date: 'Feb 18',
-                  value: '- ${formatCurrency(12300000, symbol: '')}'),
-            ],
+          child: BlocProvider(
+            create: (context) => TransactionBloc()..add(TransactionGet()),
+            child: BlocBuilder<TransactionBloc, TransactionState>(
+              builder: (context, state) {
+                if (state is TransactionSuccess) {
+                  return Column(
+                    children: state.transactions.map((transaction) {
+                      return HomeLatestTransactionsItems(
+                          transaction: transaction);
+                    }).toList(),
+                  );
+                }
+
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
           ),
         ),
       ]),
@@ -467,7 +464,7 @@ class MoreDialog extends StatelessWidget {
               height: 13,
             ),
             Wrap(
-              spacing: 21,
+              spacing: 29,
               runSpacing: 29,
               children: [
                 HomeServiceItems(
