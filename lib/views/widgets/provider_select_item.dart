@@ -1,19 +1,22 @@
+import 'package:bank_sha/models/operator_card_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
 
 class ProviderSelectItem extends StatelessWidget {
-  final String imgUrl;
-  final String nameProvider;
-  final String statusProvider;
+  final OperatorCardModel operatorCard;
+  // final String imgUrl;
+  // final String nameProvider;
+  // final String statusProvider;
   final bool isSelected;
 
   // ignore: use_key_in_widget_constructors
   const ProviderSelectItem({
     Key? key,
-    required this.imgUrl,
-    required this.nameProvider,
-    required this.statusProvider,
+    required this.operatorCard,
+    // required this.imgUrl,
+    // required this.nameProvider,
+    // required this.statusProvider,
     this.isSelected = false,
   });
 
@@ -36,15 +39,14 @@ class ProviderSelectItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            imgUrl,
-            height: 30,
+          Image.network(
+            operatorCard.thumbnail.toString(),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                nameProvider,
+                operatorCard.name.toString(),
                 style: blackTextStyle.copyWith(
                   fontSize: 16,
                   fontWeight: medium,
@@ -54,7 +56,7 @@ class ProviderSelectItem extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                statusProvider,
+                operatorCard.status.toString(),
                 style: grayTextStyle.copyWith(
                   fontSize: 12,
                 ),

@@ -1,23 +1,27 @@
+import 'package:bank_sha/models/data_plan_model.dart';
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class PackageSelectItem extends StatelessWidget {
-  final String amount;
-  final String price;
+  final DataPlanModel dataPlan;
+  // final String amount;
+  // final String price;
   final bool isSelected;
 
   // ignore: use_key_in_widget_constructors
   const PackageSelectItem({
     Key? key,
-    required this.amount,
-    required this.price,
+    required this.dataPlan,
+    // required this.amount,
+    // required this.price,
     this.isSelected = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 155,
+      width: 147,
       height: 171,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -30,7 +34,7 @@ class PackageSelectItem extends StatelessWidget {
               : null),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(
-          amount,
+          dataPlan.name.toString(),
           style: blackTextStyle.copyWith(
             fontSize: 32,
             fontWeight: medium,
@@ -40,7 +44,7 @@ class PackageSelectItem extends StatelessWidget {
           height: 6,
         ),
         Text(
-          price,
+          formatCurrency(dataPlan.price ?? 0),
           style: grayTextStyle.copyWith(
             fontSize: 12,
           ),
