@@ -316,11 +316,18 @@ class HomePage extends StatelessWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
           'Latest Transactions',
-          style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+          style: blackTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: semiBold,
+          ),
         ),
         Container(
           margin: const EdgeInsets.only(top: 14),
-          padding: const EdgeInsets.only(left: 22, top: 22, right: 21),
+          padding: const EdgeInsets.only(
+            left: 22,
+            top: 22,
+            right: 21,
+          ),
           width: 327,
           height: 356,
           decoration: BoxDecoration(
@@ -467,7 +474,7 @@ class MoreDialog extends StatelessWidget {
               height: 13,
             ),
             Wrap(
-              spacing: 21,
+              spacing: 29,
               runSpacing: 29,
               children: [
                 HomeServiceItems(
