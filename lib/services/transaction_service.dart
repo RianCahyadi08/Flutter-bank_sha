@@ -56,7 +56,7 @@ class TransactionService {
     try {
       final token = await AuthService().getToken();
       final res = await http.get(
-        Uri.parse('$baseUrl/transactions'),
+        Uri.parse('$baseUrl/transactions?limit=5'),
         headers: {
           'Authorization': token,
         },
